@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
- class usuarios extends Migration
+ class facturas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ use Illuminate\Support\Facades\Schema;
      */
     public function up()
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('facturas', function (Blueprint $table) {
             $table->engine="InnoDB";
-            $table->id('id_usuario',11);
-            $table->string('nombre_usuario',50);
-            $table->string('apellidos_usuario',50);
-            $table->integer('telefono_usuario',40);
-            $table->string('email_usuario',35)->unique();
-            $table->rememberToken();
+            $table->id('id_factura',11);
+            $table->double('iva_factura',50);
+            $table->double('neto_factura',50);
+            $table->double('total_factura',35);
+            $table->string('estado_factura',50);
+            $table->dateTime('fecha_factura',70);
             $table->timestamps();
         });
+
     }
 
     /**
@@ -32,6 +33,6 @@ use Illuminate\Support\Facades\Schema;
      */
     public function down()
     {
-        Schema::dropIfExists('usuarios');
+        //
     }
 };

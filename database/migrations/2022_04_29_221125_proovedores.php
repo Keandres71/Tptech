@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
- class usuarios extends Migration
+ class proovedores extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ use Illuminate\Support\Facades\Schema;
      */
     public function up()
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('proovedores', function (Blueprint $table) {
             $table->engine="InnoDB";
-            $table->id('id_usuario',11);
-            $table->string('nombre_usuario',50);
-            $table->string('apellidos_usuario',50);
-            $table->integer('telefono_usuario',40);
-            $table->string('email_usuario',35)->unique();
-            $table->rememberToken();
+            $table->id('id_proovedor',11);
+            $table->string('rsoc_proovedor',150);
+            $table->string('direccion_proovedor',50);
+            $table->integer('telefono_proovedor',35);
+            $table->string('email_proovedor',35)->unique();        
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ use Illuminate\Support\Facades\Schema;
      */
     public function down()
     {
-        Schema::dropIfExists('usuarios');
+        //
     }
 };
