@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+:root {
+    --aguaMarina: #64D2D2;
+    --fondo: #f7f7f7;
+    --hueso: #cacaca;
+}
+
+/*********** reset ***********/
+* {
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5 {
+    margin: 0;
+}
+
+a {
+    /* color: var(--hueso); */
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.active {
+    text-decoration: underline;
+    font-weight: bold;
+}
+/*************************/
+
+/*********** BOTONES *************/
+
+/* .sign-up {
+    background: red;
+    padding: 1.5em 2em;
+    display: block;
+    cursor: pointer;
+    border-radius: .3em;
+} */
+
+
+body {
+    font-family: 'poppins', sans-serif;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+
+/************** INDEX *******************/
+
+
+header {
+    background-color: #40C7F1;
+}
+
+.header-grid {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 0;
+}
+
+
+header a {
+    color: #fff;
+}
+
+header ul {
+    display: flex;
+}
+
+header li {
+    margin-left: 2em;
+}
+
+
+
+section {
+    margin-top: 1em;
+}
+
+.promociones {
+    width: 100%;
+    height: 30em;
+    /* background-color: red; */
+    display: grid;
+    grid-template-columns: 60% auto;
+    grid-template-rows: 6em;
+    gap: 1em;
+    grid-template-areas:
+        'top top'
+        'left right'
+}
+
+.top {
+    grid-area: top;
+}
+
+.left {
+    background-image: url(../../img/1636984885_578995_1636985323_noticia_grande.jpg);
+    background-size: cover;
+}
+
+.right {
+    background-image: url(../../img/promo-iphone.jpeg);
+    background-size: 150%;
+    background-position: -8em -2.5em;
+
+}
+
+.promociones .promo-tarjeta {
+    background-color: pink;
+}
+
+.marcas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+}
+
+.marcas li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.marca-tarjeta {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    background-color: red;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+/***************** LOGIN ****************************/
+
+.bg-login {
+    background-image: url(../../img/login-fondo.jpg);
+    background-size: cover;
+    background-position: 0 0em;
+}
+
+.wrapper {
+    max-width: 1200px;
+    /* background-color: red; */
+    margin-inline: auto;
+}
+
+.form-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    height: 85vh;
+}
+
+.form-section img {
+    /* display: block; */
+    width: 25em;
+}
+
+.form-container {
+    /* margin: 10em auto 0; */
+    text-align: center;
+    width: fit-content;
+    border: 1px solid #ccc;
+    border-radius: 3em;
+    padding: 1.5em;
+    background-color: #fff;
+}
+
+.input-field {
+    position: relative;
+}
+
+.input-label {
+    position: absolute;
+    top: 1.2em;
+    left: 1em;
+    color: rgba(0, 0, 0, .2);
+    cursor: text;
+
+    transition: all 200ms ease-in-out;
+}
+
+.input-input:hover {
+    outline-color: #badcdc;
+}
