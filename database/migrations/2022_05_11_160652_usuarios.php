@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Schema;
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->engine="InnoDB";
-            $table->id('id_usuario',11);
-            $table->string('nombre_usuario',50);
+            $table->id('id_usuario', 11);
+            $table->string('nombre_usuario', 50);
             $table->string('apellidos_usuario',50);
             $table->integer('telefono_usuario',40);
-            $table->string('email_usuario',35)->unique();
+            $table->string('email_usuario',40);
             $table->rememberToken();
             $table->timestamps();
         });

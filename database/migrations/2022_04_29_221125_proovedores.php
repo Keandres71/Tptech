@@ -31,6 +31,6 @@ use Illuminate\Support\Facades\Schema;
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('proovedores');
     }
 };
