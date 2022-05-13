@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
- class usuarios extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Schema;
             $table->id('id_usuario', 11);
             $table->string('nombre_usuario', 50);
             $table->string('apellidos_usuario',50);
-            $table->integer('telefono_usuario',40);
+            $table->integer('telefono_usuario')->length(10);
             $table->string('email_usuario',40);
             $table->rememberToken();
             $table->timestamps();

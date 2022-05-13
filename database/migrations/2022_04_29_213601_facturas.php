@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
- class facturas extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Schema;
             $table->double('neto_factura',50);
             $table->double('total_factura',35);
             $table->string('estado_factura',50);
-            $table->dateTime('fecha_factura',70);
             $table->timestamps();
         });
 
