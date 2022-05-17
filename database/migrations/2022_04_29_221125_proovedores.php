@@ -17,7 +17,7 @@ return new class extends Migration
             $table->engine="InnoDB";
             $table->id('id_proovedor',11);
             $table->string('rsoc_proovedor',150);
-            $table->string('direccion_proovedor',50);
+            $table->string('direccion_proovedor')->lenght(50);
             $table->integer('telefono_proovedor')->length(10);
             $table->string('email_proovedor',35)->unique();        
             $table->timestamps();

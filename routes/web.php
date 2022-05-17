@@ -24,3 +24,5 @@ Route::controller(UsuarioController::class)->group(function(){
 });
 
 
+
+
