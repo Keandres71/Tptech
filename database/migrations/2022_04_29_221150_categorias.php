@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('categorias', function (Blueprint $table) {
             $table->engine="InnoDB";
-            $table->id('id_categoria',11);
-            $table->string('tipo_categoria',50);
+            $table->id('id_categoria')->lenght(11);
+            $table->string('tipo_categoria')->lenght(50);
             $table->timestamps();
         });
     }

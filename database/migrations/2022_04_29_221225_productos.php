@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->engine="InnoDB";
-            $table->id('id_producto',11);
-            $table->string('nombre_producto',50);
-            $table->string('descripcion_producto',150);
-            $table->double('valor_producto',35);
+            $table->id('id_producto')->lenght(11);
+            $table->string('nombre_producto')->lenght(50);
+            $table->string('descripcion_producto')->lenght(150);
+            $table->double('valor_producto')->lenght(40);
             $table->timestamps();
         });
     }

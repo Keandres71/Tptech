@@ -14,11 +14,11 @@ return new class extends Migration {
     {
         Schema::create('detalle_facturas', function (Blueprint $table) {
             $table->engine="InnoDB";
-            $table->id('id_detfactura',11);
+            $table->id('id_detfactura')->lenght(11);
             $table->unsignedBigInteger('id_factura');
-            $table->double('cantidad',50);
-            $table->double('valor_unitario',50);
-            $table->double('total',35);
+            $table->double('cantidad')->lenght(50);
+            $table->double('valor_unitario')->lenght(50);
+            $table->double('total')->lenght(35);
             $table->timestamps();
 
             $table->foreign('id_factura')->on('facturas')->references('id_factura');
