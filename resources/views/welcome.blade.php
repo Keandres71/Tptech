@@ -13,7 +13,7 @@
         <div class="wrapper">
             <div class="header-grid">
                 <div class="logo">
-                    <a href="index.html">TP-TECH</a>
+                    <a href="{{asset ('/') }}">TP-TECH</a>
                 </div>
     
                 <nav class="nav-pag">
