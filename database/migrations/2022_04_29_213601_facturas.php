@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('facturas', function (Blueprint $table) {
             $table->engine="InnoDB";
-            $table->id('id_factura')->lenght(11);
-            $table->double('iva_factura')->lenght(50);
-            $table->double('neto_factura')->lenght(50);
-            $table->double('total_factura')->lenght(35);
-            $table->string('estado_factura')->lenght(50);
+            $table->id('id')->lenght(11);
+            $table->unsignedBigInteger('iduser');
+            $table->double('iva')->lenght(50);
+            $table->double('neto')->lenght(50);
+            $table->double('total')->lenght(35);
+            $table->foreign('iduser')->references('id')->on('usuarios')->onDelete('cascade');
             $table->timestamps();
         });
 

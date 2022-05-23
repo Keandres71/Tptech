@@ -10,8 +10,8 @@ return [
         ,
 
     [
-        'text' => 'proovedores' ,
-        'url' => '/proovedores' ,
+        'text' => 'Productos' ,
+        'url' => '/productos' ,
         'icon' => 'fab fa-brands fa-android',
 
     ]

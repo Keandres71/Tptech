@@ -18,9 +18,9 @@ Route::get('/', HomeController::class);
 
 // RUTAS DE USUARIOS
 Route::controller(UsuarioController::class)->group(function(){
-    Route::get('usuarios', 'index');
-    Route::get('usuarios/create', 'create');
-    Route::get('usuarios/{usuario}', 'show');
+    Route::get('usuarios', 'index')->name('usuarios.index');
+    Route::get('usuarios/create', 'store')->name('usuarios.create');
+    Route::get('usuarios/{usuario}', 'show')->name('usuarios.id');
 });
 
 

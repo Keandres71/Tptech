@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('proovedores', function (Blueprint $table) {
             $table->engine="InnoDB";
-            $table->id('id_proovedor')->lenght(11);
-            $table->string('rsoc_proovedor')->lenght(150);
-            $table->string('direccion_proovedor')->lenght(50);
-            $table->integer('telefono_proovedor')->length(10);
-            $table->string('email_proovedor')->lenght(35)->unique();        
+            $table->id('id')->lenght(11);
+            $table->string('rsoc')->lenght(150);
+            $table->string('dire')->lenght(50);
+            $table->integer('tel')->length(10);
+            $table->string('email')->lenght(35)->unique();        
             $table->timestamps();
         });
     }

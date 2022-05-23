@@ -14,14 +14,18 @@ return new class extends Migration {
     {
         Schema::create('detalle_facturas', function (Blueprint $table) {
             $table->engine="InnoDB";
-            $table->id('id_detfactura')->lenght(11);
-            $table->unsignedBigInteger('id_factura');
-            $table->double('cantidad')->lenght(50);
-            $table->double('valor_unitario')->lenght(50);
+            $table->id('id')->lenght(11);
+            $table->unsignedBigInteger('idfactu');
+            $table->unsignedBigInteger('idproduct');
+            $table->double('cant')->lenght(50);
+            $table->double('v_unit')->lenght(50);
+            $table->double('iva')->lenght(50);
             $table->double('total')->lenght(35);
             $table->timestamps();
+            $table->foreign('idfactu')->references('id')->on('facturas')->onDelete('cascade');
 
-            $table->foreign('id_factura')->on('facturas')->references('id_factura');
+            $table->foreign('idproduct')->references('id')->on('productos')->onDelete('cascade');
+            
         });
     }
 

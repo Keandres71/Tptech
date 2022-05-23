@@ -15,11 +15,14 @@ return new class extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->engine="InnoDB";
-            $table->id('id_usuario')->lenght(11);
-            $table->string('nombre_usuario')->lenght(50);
-            $table->string('apellidos_usuario')->lenght(50);
-            $table->integer('telefono_usuario')->length(10);
-            $table->string('email_usuario')->lenght(50);
+            $table->id('id')->lenght(11);
+            $table->unsignedBigInteger('idrol');
+            $table->string('nombre')->lenght(50);
+            $table->string('apellido')->lenght(50);
+            $table->string('dire')->lenght(80);
+            $table->integer('tel')->length(20);
+            $table->string('email')->lenght(50);
+            $table->foreign('idrol')->references('id')->on('roles')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
