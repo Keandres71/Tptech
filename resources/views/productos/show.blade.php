@@ -1,12 +1,11 @@
 @extends('adminlte::page')
-
 @section('content')
 
 <div class="card card-primary card-outline">
     <a class="d-block w-100" data-toggle="collapse" href="#collapseOne">
         <div class="card-header">
             <h4 class="card-title w-100">
-                1. Vista de registro de usuario
+                1. Vista para crear un producto
             </h4>
         </div>
     </a>
@@ -18,7 +17,4 @@
             <input type="submit" value="Enviar">
         </form>
 
-        <a href="{{route('usuarios.index')}}"><strong>Volver al inicio</strong></a> <br>
-
 @endsection
-    

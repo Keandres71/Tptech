@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\UsuarioController;
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,12 @@ Route::controller(UsuarioController::class)->group(function(){
     Route::get('usuarios', 'index')->name('usuarios.index');
     Route::get('usuarios/create', 'store')->name('usuarios.create');
     Route::get('usuarios/{usuario}', 'show')->name('usuarios.id');
+});
+
+Route::controller(ProductoController::class)->group(function(){ 
+    Route::get('productos', 'index')->name('productos.index');
+    Route::get('productos/create', 'store')->name('productos.create');
+    Route::get('productos/{producto}', 'show')->name('productos.id');
 });
 
 
