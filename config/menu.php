@@ -2,7 +2,7 @@
 
 return [
     [
-        'text' => 'usuarios' ,
+        'text' => 'Usuarios' ,
         'url' => '/usuarios' ,
         'icon' => 'far fa-fw fa-user' ,
         
@@ -11,15 +11,15 @@ return [
 
     [
         'text' => 'Productos' ,
-        'url' => '/productos' ,
+        'url' => '/Adminlte/productos' ,
         'icon' => 'fab fa-brands fa-android',
 
     ]
         ,
         
     [
-        'text' => 'Reportes' ,
-        'url' => '/proovedores', 
+        'text' => 'Proovedores' ,
+        'url' => '/Adminlte/proovedores', 
         'icon' => 'fab fa-brands fa-audible',
 
     ]

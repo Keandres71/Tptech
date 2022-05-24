@@ -13,4 +13,8 @@ class UsuarioController extends Controller
     public function store(){
         return view('usuarios/create');
     }
+
+    public function login(){
+        return view('usuarios.login');
+    }
 }
