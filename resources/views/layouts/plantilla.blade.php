@@ -18,7 +18,7 @@
     
                 <nav class="nav-pag">
                     <ul>
-                        <li><a href="paginas/tienda.html">Tienda</a></li>
+                        
                         <li><a href="#">Nosotros</a></li>
                         <li><a href="#">Contacto</a></li>
                         <li><a href="#"><i class="fa-solid fa-user"></i></a></li>
@@ -32,9 +32,12 @@
         </div>
     </header>
 
-    @section('content')
-        
-    @endsection
+    <div> 
+        @yield('content')
+
+    </div>
+    
+    
 
 
     <footer>
