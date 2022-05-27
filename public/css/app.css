@@ -1,7 +1,7 @@
-@import '~@fortawesome/fontawesome-free/scss/brands';
+/* @import '~@fortawesome/fontawesome-free/scss/brands';
 @import '~@fortawesome/fontawesome-free/scss/regular';
 @import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome'; */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
@@ -23,6 +23,10 @@ h1,h2,h3,h4,h5 {
 a {
     /* color: var(--hueso); */
     text-decoration: none;
+}
+
+a:visited {
+    color:#fff;
 }
 
 ul {
@@ -148,14 +152,6 @@ section {
 
 
 
-
-
-
-
-
-
-
-
 /***************** LOGIN ****************************/
 
 .bg-login {
@@ -209,4 +205,131 @@ section {
 .input-input:hover {
     outline-color: #badcdc;
 }
+.input-input:focus {
+    outline-color: #8fbdbd;
+}
 
+.input-input:focus ~ .input-label,
+.input-input:not(:placeholder-shown).input-input:not(:focus) ~ .input-label {
+    color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 1.2em;
+    font-weight: bold;
+    font-size: .8rem;
+}
+
+.form-container input {
+    font-size: 1rem;
+    text-align: left;
+    width: 100%;
+    padding: 1em 1em;
+    margin-bottom: 1em;
+    border-radius: 1em;
+    border: none;
+    outline: 2px solid #d8ecec;
+    background: #D8ECEC;
+}
+
+.form-container a:hover {
+    font-weight: bold;
+    color: #000;
+}
+
+h2 {
+    margin: 1em 0;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.login-btn {
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+    padding: 1em 1em;
+    margin-bottom: 1em;
+    border-radius: 1em;
+    border: none;
+    background: #40C7F1;
+
+    transition: all .1s ease;
+}
+.login-btn:hover {
+    cursor: pointer;
+    background-color: tomato;
+    color: #fff;
+}
+
+.login-options {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    margin-top: 1em;
+}
+
+
+
+
+/***************** TIENDA ****************************/
+
+.tienda-grid {
+    /* background-color: lightgray; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 50% auto;
+    margin-top: 5em;
+}
+
+.tienda-grid img {
+    display: block;
+    width: 100%;
+}
+
+.cel-tarjeta {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: pink;
+    width: 15em;
+    height: 20em;
+    outline: 1px solid red;
+    border-radius: .8em;
+    overflow: hidden;
+}
+
+/*  FOOTER  */
+
+footer {
+    background-color: #f1f1f1;
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5em;
+}
+
+.media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.media li {
+    margin-inline: 1em;
+}
+
+
+.media i {
+    /* padding: 0 1em; */
+    font-size: 1.6rem;
+    background: #000;
+    padding: .5em;
+    border-radius: 50%;
+}
+
+.media i:hover {
+    background-color: rgb(85, 85, 85);
+    color: #40C7F1;
+}

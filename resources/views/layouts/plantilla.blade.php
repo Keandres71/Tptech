@@ -21,10 +21,9 @@
                         
                         <li><a href="#">Nosotros</a></li>
                         <li><a href="#">Contacto</a></li>
-                        <li><a href="#"><i class="fa-solid fa-user"></i></a></li>
-                        <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
                         <li><a href="{{route('usuarios.login')}}">Ingresar</a></li>
                         <li class="sign-up"><a href="{{route('usuarios.create')}}">Registrarse</a></li>
+                        <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
                         <li><input type="text" class="barra-busqueda"></div></li>
                     </ul>
                 </nav>
