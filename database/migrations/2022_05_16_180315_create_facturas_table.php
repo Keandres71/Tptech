@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('proovedores', function (Blueprint $table) {
-            $table->engine="InnoDB";
-            $table->id('id')->lenght(11);
-            $table->string('rsoc')->lenght(150);
-            $table->string('dire')->lenght(50);
-            $table->integer('tel')->length(10);
-            $table->string('email')->lenght(35)->unique();        
+        Schema::create('facturas', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->id('id');
+            $table->unsignedBigInteger('iduser');
+            $table->double('iva');
+            $table->double('total');
+            $table->double('neto');
             $table->timestamps();
+            $table->foreign('iduser')->references('id')->on('usuarios')->onDelete('cascade');
         });
     }
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proovedores');
+        Schema::dropIfExists('facturas');
     }
 };

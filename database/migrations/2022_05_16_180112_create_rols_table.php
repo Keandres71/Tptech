@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->engine="InnoDB";
-            $table->id('id')->lenght(11);
-            $table->string('tipo')->lenght(50);
+        Schema::create('rols', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->id('id');
+            $table->string('tipo');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('rols');
     }
 };

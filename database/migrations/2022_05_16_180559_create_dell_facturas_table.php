@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,20 +13,19 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('detalle_facturas', function (Blueprint $table) {
-            $table->engine="InnoDB";
-            $table->id('id')->lenght(11);
+        Schema::create('dell_facturas', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->id('id');
             $table->unsignedBigInteger('idfactu');
             $table->unsignedBigInteger('idproduct');
-            $table->double('cant')->lenght(50);
-            $table->double('v_unit')->lenght(50);
-            $table->double('iva')->lenght(50);
-            $table->double('total')->lenght(35);
+            $table->double('cant');
+            $table->double('v_unit');
+            $table->double('total');
+            $table->double('iva');
             $table->timestamps();
             $table->foreign('idfactu')->references('id')->on('facturas')->onDelete('cascade');
 
             $table->foreign('idproduct')->references('id')->on('productos')->onDelete('cascade');
-            
         });
     }
 
@@ -36,6 +36,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('detalle_facturas');
+        Schema::dropIfExists('dell_facturas');
     }
 };

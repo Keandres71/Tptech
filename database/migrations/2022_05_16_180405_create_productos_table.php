@@ -14,16 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('productos', function (Blueprint $table) {
-            $table->engine="InnoDB";
-            $table->id('id')->lenght(11);
+            $table->engine = 'InnoDB';
+            $table->id('id');
             $table->unsignedBigInteger('idcag');
             $table->unsignedBigInteger('idpro');
-            $table->string('nombre')->lenght(50);
-            $table->string('descripcion')->lenght(150);
-            $table->double('val_unit')->lenght(40);
+            $table->string('nombre');
+            $table->string('descripcion');
+            $table->double('val_unit');
             $table->timestamps();
             $table->foreign('idcag')->references('id')->on('categorias')->onDelete('cascade');
-            $table->foreign('idpro')->references('id')->on('proovedores')->onDelete('cascade');
+            $table->foreign('idpro')->references('id')->on('proveedors')->onDelete('cascade');
         });
     }
 

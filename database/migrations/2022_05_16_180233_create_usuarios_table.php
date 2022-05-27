@@ -14,16 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('usuarios', function (Blueprint $table) {
-            $table->engine="InnoDB";
-            $table->id('id')->lenght(11);
+            $table->engine = 'InnoDB';
+            $table->id('id');
             $table->unsignedBigInteger('idrol');
-            $table->string('nombre')->lenght(50);
-            $table->string('apellido')->lenght(50);
-            $table->string('dire')->lenght(80);
-            $table->integer('tel')->length(20);
-            $table->string('email')->lenght(50);
-            $table->foreign('idrol')->references('id')->on('roles')->onDelete('cascade');
-            $table->rememberToken();
+            $table->string('nombre');
+            $table->string('apellido');
+            $table->string('dire');
+            $table->string('tel');
+            $table->string('email');
+            $table->foreign('idrol')->references('id')->on('rols')->onDelete('cascade');
             $table->timestamps();
         });
     }
