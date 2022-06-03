@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Tptech',
+    'title' => 'Admin | TpTech',
     'title_prefix' => '',
     'title_postfix' => '',
 

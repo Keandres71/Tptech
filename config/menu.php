@@ -3,7 +3,7 @@
 return [
     [
         'text' => 'Usuarios' ,
-        'url' => '/usuarios' ,
+        'url' => 'Adminlte/usuarios/index' ,
         'icon' => 'far fa-fw fa-user' ,
         
     ]
@@ -23,12 +23,6 @@ return [
         'icon' => 'fab fa-brands fa-audible',
 
     ]
-        ,
-    [
-        'text' => 'Neyder crack' ,
-        'url' => '/proovedores', 
-        'icon' => 'far fa-fw fa-bell',
-
-    ]
+  
 ];
 
