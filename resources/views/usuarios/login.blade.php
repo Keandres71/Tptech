@@ -5,12 +5,12 @@
     <div class="wrapper">
         <main class="form-section">
             <div class="login-logo">
-                <img src="../../img/login-logo.jpg" alt="">
+                
             </div>
         
             <div class="form-container">
                 <h2 class="saludo">Bienvenido</h2>
-                <form action="#">
+                <form action="">
                     <div class="input-field">
                         <input class="input-input" type="email" name="email" placeholder=" " autocomplete="off" id="correo">
                         <label class="input-label" for="correo">correo</la>
