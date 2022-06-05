@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <div class="wrapper">
+        <div class="wrapper-proyect">
             <div class="header-grid">
                 <div class="logo">
                     <a href="{{asset ('/') }}">TP-TECH</a>
@@ -19,6 +19,7 @@
                 <nav class="nav-pag">
                     <ul>
                         
+                        <li><a href="#">Tienda</a></li>
                         <li><a href="#">Nosotros</a></li>
                         <li><a href="#">Contacto</a></li>
                         <li><a href="{{route('usuarios.login')}}">Ingresar</a></li>

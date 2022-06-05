@@ -3,7 +3,7 @@
     
 
 <section>
-    <div class="wrapper">
+    <div class="wrapper-proyect">
         <div class="promociones">
             <div class="promo-tarjeta top"></div>
             <div class="promo-tarjeta left"></div>
@@ -13,7 +13,7 @@
     </section>
     
     <section>
-        <div class="wrapper">
+        <div class="wrapper-proyect">
             <ul class="marcas">
                 <li><div class="marca-tarjeta"><a href="#"><img src="../img/logo-apple.png" alt=""></a></div></li>
                 <li><div class="marca-tarjeta"><a href="#"><img src="../img/logo-huawei.png" alt=""></a></div></li>
