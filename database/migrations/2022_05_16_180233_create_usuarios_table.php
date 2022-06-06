@@ -16,13 +16,19 @@ return new class extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id('id');
-            $table->unsignedBigInteger('idrol');
+            $table->unsignedBigInteger('idrol')->default(0);
             $table->string('nombre');
             $table->string('apellido');
-            $table->string('dire');
-            $table->string('tel');
-            $table->string('email');
-            $table->foreign('idrol')->references('id')->on('rols')->onDelete('cascade');
+            $table->string('email')->unique();
+            $table->date('fecha_nac');
+            $table->string('tipo_doc');
+            $table->string('num_doc');
+            $table->string('contraseña');
+            $table->string('ciudad')->nullable();
+            $table->string('dire')->nullable();
+            $table->string('tel')->nullable();
+            $table->rememberToken();
+            //$table->foreign('idrol')->references('id')->on('rols')->onDelete('cascade');
             $table->timestamps();
         });
     }

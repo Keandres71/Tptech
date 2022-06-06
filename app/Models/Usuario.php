@@ -11,8 +11,23 @@ class Usuario extends Model
 {
     use HasFactory;
 
+
     // Especificando la tabla de que va a utilizar el modelo
     protected $table = "usuarios";
+
+    protected $fillable = [
+        'nombre',
+        'apellido',
+        'tipo_doc',
+        'num_doc',
+        'fecha_nac',
+        'email',
+        'contraseña'
+    ];
+
+    protected $hidden = [
+        'contraseña' 
+    ];
 
     protected function nombre(): Attribute
     { 

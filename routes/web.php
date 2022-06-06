@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductoController;
@@ -20,10 +21,13 @@ Route::get('/', HomeController::class);
 
 // RUTAS DE USUARIOS
 Route::controller(UsuarioController::class)->group(function(){
-    Route::get('usuarios', 'index')->name('usuarios.index');
-    Route::get('usuarios/login', 'login')->name('usuarios.login');
-    Route::get('usuarios/create', 'store')->name('usuarios.create');
-    Route::get('usuarios/{usuario}', 'show')->name('usuarios.id');
+    //Route::get('usuarios', 'index')->name('usuarios.index');
+    Route::get('login', 'login')->name('usuarios.login');
+    Route::get('register', 'create')->name('usuarios.create');
+    Route::post('usuarios','store')->name('usuarios.store');
+    Route::get('perfil/{usuario}', 'show')->name('usuarios.show');
+    Route::put('actualizar/{usuario}', 'update')->name('usuarios.update');
+    Route::delete('eliminar/{usuario}', 'destroy')->name('usuarios.destroy');
 });
 
 Route::controller(ProductoController::class)->group(function(){ 
