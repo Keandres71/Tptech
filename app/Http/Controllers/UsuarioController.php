@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
 {
     public function index(){
 
-        $usuarios = Usuario::all();
+        $usuarios = User::all();
         return view('usuarios.index', compact('usuario'));
     }
 
@@ -27,7 +27,7 @@ class UsuarioController extends Controller
             'contraseña'=>'required'
         ]);
 
-        $usuario = new Usuario();
+        $usuario = new User();
         
         $usuario->nombre = $request->nombre;
         $usuario->apellido = $request->apellido;
@@ -43,16 +43,16 @@ class UsuarioController extends Controller
         
     }
 
-    public function show(Usuario $usuario){
+    public function show(User $usuario){
         
         return view('usuarios.show', compact('usuario'));
     }
     
-    public function edit(Usuario $usuario){
+    public function edit(User $usuario){
         return view('usuarios.edit', compact('usuario'));
     }
 
-    public function update(Request $request , Usuario $usuario){
+    public function update(Request $request , User $usuario){
         
         $request->validate([
             'nombre'=>'required',
@@ -63,7 +63,7 @@ class UsuarioController extends Controller
             'contraseña'=>'required'
         ]);
 
-        $usuario = new Usuario();
+        $usuario = new User();
         
         $usuario->nombre = $request->nombre;
         $usuario->apellido = $request->apellido;
@@ -79,7 +79,7 @@ class UsuarioController extends Controller
         return redirect()->route('usuarios.show',$usuario);
     }
 
-    public function destroy(Usuario $usuario){
+    public function destroy(User $usuario){
         $usuario->delete();
         return redirect()->route('/');
     }

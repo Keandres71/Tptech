@@ -21,7 +21,7 @@ return new class extends Migration
             $table->double('total');
             $table->double('neto');
             $table->timestamps();
-            $table->foreign('iduser')->references('id')->on('usuarios')->onDelete('cascade');
+            $table->foreign('iduser')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

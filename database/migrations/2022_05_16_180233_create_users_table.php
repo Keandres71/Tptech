@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id('id');
             $table->unsignedBigInteger('idrol')->default(0);
@@ -22,11 +22,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->date('fecha_nac');
             $table->string('tipo_doc');
-            $table->string('num_doc');
+            $table->integer('num_doc');
             $table->string('contraseña');
             $table->string('ciudad')->nullable();
             $table->string('dire')->nullable();
-            $table->string('tel')->nullable();
+            $table->integer('tel')->nullable();
             $table->rememberToken();
             //$table->foreign('idrol')->references('id')->on('rols')->onDelete('cascade');
             $table->timestamps();
@@ -40,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('users');
     }
 };
