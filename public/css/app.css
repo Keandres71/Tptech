@@ -106,6 +106,10 @@ header ul {
     display: flex;
 }
 
+li {
+    list-style: none;
+}
+
 header li {
     margin-left: 2em;
 }
@@ -160,6 +164,8 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
     border: 1px; ;
     background-color: rgb(225, 229, 232);
+    padding: .8em;
+    border-radius: 1em;
 }
 
 .marcas li {
@@ -385,28 +391,66 @@ form {
 
 /***************** TIENDA ****************************/
 
-.tienda-grid {
-    /* background-color: lightgray; */
+.grid-productos {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 50% auto;
-    margin-top: 5em;
-}
-
-.tienda-grid img {
-    display: block;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 5em 2em;
     width: 100%;
+    margin-top: 3em;
 }
 
-.cel-tarjeta {
+.producto-card {
+    width: 280px;
     display: grid;
     grid-template-columns: 1fr;
-    background-color: pink;
-    width: 15em;
-    height: 20em;
-    outline: 1px solid red;
-    border-radius: .8em;
+    grid-template-rows: 50% auto;
+    box-shadow: 0 1em 1em rgba(0, 0, 0, .2);
+    border-radius: .4em;
+    /* cursor: pointer; */
+    /* outline: 1px solid red; */
     overflow: hidden;
+    transition: all 200ms ease-in-out;
+}
+
+.producto-card:hover {
+    transform: translate(0, -1em);
+    box-shadow: 0 1em 1em rgba(0, 0, 0, .4);
+}
+
+.producto-card-contenido {
+    position:relative;
+    background-color: #fff;
+    padding: 1em;
+    border-radius: .4em;
+}
+
+.producto-nombre {
+    font-weight: bold;
+}
+
+.producto-info {
+    margin-bottom: 6em;
+    background-color: #fff;
+    font-size: .85rem;
+    font-weight: 300;
+}
+
+.compra {
+    background: #e88b3e;
+    color: #fff;
+    /* font-size: 4rem; */
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.compra:hover {
+    background: rgb(55, 248, 29);
+    color: #000;
+}
+.compra i {
+    padding: .5em;
 }
 
 /*  FOOTER  */

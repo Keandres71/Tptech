@@ -18,8 +18,6 @@
     
                 <nav class="nav-pag">
                     <ul>
-                        
-                        <li><a href="#">Tienda</a></li>
                         <li><a href="#">Nosotros</a></li>
                         <li><a href="#">Contacto</a></li>
                         <li><a href="{{route('usuarios.login')}}">Ingresar</a></li>
