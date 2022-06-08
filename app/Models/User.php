@@ -37,7 +37,7 @@ class User extends Authenticatable
         'contraseña',
         'remember_token',
     ];
-
+    
     /**
      * The attributes that should be cast.
      *
@@ -79,7 +79,7 @@ class User extends Authenticatable
     {
         return new Attribute(
             set: function($value){
-                return strtoupper($value);
+                return encrypt($value);
             }
         );
     }

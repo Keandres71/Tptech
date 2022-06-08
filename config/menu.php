@@ -3,7 +3,7 @@
 return [
     [
         'text' => 'Usuarios' ,
-        'url' => 'Adminlte/usuarios/index' ,
+        'url' => 'Adminlte/usuarios' ,
         'icon' => 'far fa-fw fa-user' ,
         
     ]

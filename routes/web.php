@@ -21,7 +21,12 @@ Route::get('/', HomeController::class);
 
 // RUTAS DE USUARIOS
 Route::controller(UsuarioController::class)->group(function(){
-    //Route::get('usuarios', 'index')->name('usuarios.index');
+    Route::get('usuarios', 'index')->name('usuarios.index');
+    Route::get('Adminlte/usuarios','index')->name('adminlte.index');
+    Route::get('Adminlte/usuarios/create','create2')->name('adminlte.create2');
+    Route::post('Adminlte/register', 'store2')->name('adminlte.store2');
+
+
     Route::get('login', 'login')->name('usuarios.login');
     Route::get('register', 'create')->name('usuarios.create');
     Route::post('usuarios','store')->name('usuarios.store');
@@ -29,6 +34,7 @@ Route::controller(UsuarioController::class)->group(function(){
     Route::put('actualizar/{usuario}', 'update')->name('usuarios.update');
     Route::delete('eliminar/{usuario}', 'destroy')->name('usuarios.destroy');
 });
+
 
 Route::controller(ProductoController::class)->group(function(){ 
     Route::get('Adminlte/productos', 'index')->name('productos.index');
