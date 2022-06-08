@@ -49,11 +49,11 @@
             </div>
             
             <div class="botones">
-                <button class="boton agregar"><a href="{{route('productos.index')}}">Guardar</a></button>
+                <button class="boton agregar"><a href="{{route('categorias.index')}}">Guardar</a></button>
                 {{-- <button class="boton agregar"><a href="inventory.html">Guardar</a></button> --}}
                 <button class="boton agregar"><a href="inventory.html">editar</a></button>
                 {{-- <button class="boton cancelar"><a href="inventory.html">Cancelar</a></button> --}}
-                <button class="boton cancelar"><a href="{{route('productos.index')}}">Cancelar</a></button>
+                <button class="boton cancelar"><a href="{{route('categorias.index')}}">Cancelar</a></button>
             </div>
         </form>
     </div>
