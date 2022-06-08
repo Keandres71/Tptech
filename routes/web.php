@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProovedorController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\CategoriaController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,5 +44,8 @@ Route::controller(ProovedorController::class)->group(function(){
     Route::get('Adminlte/proovedores/{producto}', 'show')->name('proovedores.id');
 });
 
+// Rutas de Categorias del AdminLTE
+
+Route::resource('Adminlte/categorias', CategoriaController::class)->names('AdminLte/categorias');
 
 

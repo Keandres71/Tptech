@@ -23,6 +23,13 @@ return [
         'icon' => 'fab fa-brands fa-audible',
 
     ]
+    ,
+      [
+        'text' => 'Categorias' ,
+        'url' => '/Adminlte/categorias', 
+        'icon' => 'fab fa-brands fa-audible',
+
+    ]
   
 ];
 

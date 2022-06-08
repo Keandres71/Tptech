@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ProductoController;
 
+
 Route::get('',function(){ 
     return "hola";
 });
@@ -15,3 +16,5 @@ Route::controller(ProductoController::class)->group(function(){
     Route::get('productos/create', 'store')->name('productos.create');
     Route::get('productos/{producto}', 'show')->name('productos.id');
 });
+
+
