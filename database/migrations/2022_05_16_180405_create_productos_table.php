@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('descripcion');
             $table->double('val_unit');
+            $table->float('active')->default(0);
             $table->timestamps();
             $table->foreign('idcag')->references('id')->on('categorias')->onDelete('cascade');
             $table->foreign('idpro')->references('id')->on('proveedors')->onDelete('cascade');
