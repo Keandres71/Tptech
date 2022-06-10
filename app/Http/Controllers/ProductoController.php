@@ -44,7 +44,7 @@ class ProductoController extends Controller
             'idpro' => 'required|max:20',
             'nombre' => 'required|max:50',
             'descripcion' => 'required|max:255',
-            'val_unit' => 'required|gte:50000'
+            'val_unit' => 'required|gte:100000'
         ]);
         $producto = Producto::create($request->only('idcag', 'idpro', 'nombre', 'descripcion', 'val_unit'));
 
