@@ -37,16 +37,11 @@ Route::controller(UsuarioController::class)->group(function(){
     Route::delete('eliminar/{usuario}', 'destroy')->name('usuarios.destroy');
 });
 
-<<<<<<< HEAD
-Route::resource('Adminlte/productos', ProductoController::class)->names('Adminlte/productos');
-=======
 
-Route::controller(ProductoController::class)->group(function(){ 
-    Route::get('Adminlte/productos', 'index')->name('productos.index');
-    Route::get('Adminlte/productos/create', 'store')->name('productos.create');
-    Route::get('Adminlte/productos/{producto}', 'show')->name('productos.id');
-});
->>>>>>> 550c4d61fbc03cda56f06291022e00d5669905c6
+Route::resource('Adminlte/productos', ProductoController::class)->names('Adminlte/productos');
+
+
+
 
 
 Route::controller(ProovedorController::class)->group(function(){
