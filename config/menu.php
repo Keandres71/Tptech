@@ -3,7 +3,7 @@
 return [
     [
         'text' => 'Usuarios' ,
-        'url' => 'Adminlte/usuarios/index' ,
+        'url' => 'Adminlte/usuarios' ,
         'icon' => 'far fa-fw fa-user' ,
         
     ]
@@ -20,6 +20,13 @@ return [
     [
         'text' => 'Proovedores' ,
         'url' => '/Adminlte/proovedores', 
+        'icon' => 'fab fa-brands fa-audible',
+
+    ]
+    ,
+      [
+        'text' => 'Categorias' ,
+        'url' => '/Adminlte/categorias', 
         'icon' => 'fab fa-brands fa-audible',
 
     ]

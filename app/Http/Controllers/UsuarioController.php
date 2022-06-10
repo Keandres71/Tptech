@@ -8,12 +8,43 @@ class UsuarioController extends Controller
 {
     public function index(){
 
-        $usuarios = User::all();
-        return view('usuarios.index', compact('usuario'));
+        $usuario = User::all();
+        return view('Adminlte.usuarios.index')->with('usuarios',$usuario);
+    }
+    public function create2(){
+
+        //$usuarios = User::all();
+        return view('Adminlte.usuarios.create');
     }
 
     public function create(){
         return view('usuarios.create');
+    }
+    public function store2(Request $request){
+        $request->validate([
+            'nombre'=>'required',
+            'apellido'=>'required',
+            'tipo_doc'=>'required',
+            'num_doc'=>'required',
+            'fecha_nac'=>'required',
+            'email'=>'required',
+            'contraseña'=>'required'
+        ]);
+
+        $usuario = new User();
+        
+        $usuario->nombre = $request->nombre;
+        $usuario->apellido = $request->apellido;
+        $usuario->tipo_doc = $request->tipo_doc;
+        $usuario->num_doc = $request->num_doc;
+        $usuario->fecha_nac = $request->fecha_nac;
+        $usuario->email = $request->email;
+        $usuario->contraseña = $request->contraseña;
+    
+        $usuario->save();
+        
+        return redirect()->route('adminlte.index');
+        
     }
 
     public function store(Request $request){
