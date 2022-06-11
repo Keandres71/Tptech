@@ -617,3 +617,27 @@ textarea {
     right: 2em;
     cursor: text;
 }
+
+/****************** SHOW ************************/
+
+.show-product-card {
+    max-width: 1200px;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 40% auto;
+    place-items: center;
+    box-shadow: 0 1em 1em rgba(0, 0, 0, .2);
+    padding: 1em 3em;
+    border-radius: 1em;
+}
+
+.show-agregar-carrito {
+    background: #e88b3e;
+    color: #fff;
+    padding: 1em;
+}
+
+.show-agregar-carrito:hover {
+    background: rgb(55, 248, 29);
+    color: #000;
+}
