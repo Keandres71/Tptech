@@ -9,6 +9,7 @@
     --aguaMarina: #64D2D2;
     --fondo: #f7f7f7;
     --hueso: #cacaca;
+    --links: hsl(0, 0%, 88%);
 }
 
 /*********** reset ***********/
@@ -23,6 +24,10 @@ h1,h2,h3,h4,h5 {
 a {
     /* color: var(--hueso); */
     text-decoration: none;
+    color: rgb(226, 226, 226);
+}
+
+a:hover {
     color: white;
 }
 
@@ -93,13 +98,11 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 1em 0;
-    
-
 }
 
 
 header a {
-    color: #fff;
+    color: var(--links);
 }
 
 header ul {
@@ -114,10 +117,8 @@ header li {
     margin-left: 2em;
 }
 
-
-
 section {
-    margin-top: 1em;
+    margin-top: 2em;
 }
 
 .promociones {
@@ -140,8 +141,6 @@ section {
     height: 10em;
     
 }
-
-
 
 .left {
     background-image: url(https://tienda.claro.com.co/wcsstore/Claro/images/contenidos/Imagenes/Destacados/iphone_12_1junio_D.jpg);
@@ -393,7 +392,7 @@ form {
 
 .grid-productos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 5em 2em;
     width: 100%;
     margin-top: 3em;
