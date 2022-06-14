@@ -21,21 +21,8 @@ use App\Http\Controllers\CategoriaController;
 //RUTA DE INICIO DE LA PAGINA
 Route::get('/', HomeController::class);
 
-// RUTAS DE USUARIOS
-Route::controller(UsuarioController::class)->group(function(){
-    Route::get('usuarios', 'index')->name('usuarios.index');
-    Route::get('Adminlte/usuarios','index')->name('adminlte.index');
-    Route::get('Adminlte/usuarios/create','create2')->name('adminlte.create2');
-    Route::post('Adminlte/register', 'store2')->name('adminlte.store2');
 
-
-    Route::get('login', 'login')->name('usuarios.login');
-    Route::get('register', 'create')->name('usuarios.create');
-    Route::post('usuarios','store')->name('usuarios.store');
-    Route::get('perfil/{usuario}', 'show')->name('usuarios.show');
-    Route::put('actualizar/{usuario}', 'update')->name('usuarios.update');
-    Route::delete('eliminar/{usuario}', 'destroy')->name('usuarios.destroy');
-});
+Route::resource('Adminlte/usuarios', UsuarioController::class)->names('usuarios');
 
 
 Route::resource('Adminlte/productos', ProductoController::class)->names('Adminlte/productos');

@@ -3,49 +3,21 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class UsuarioController extends Controller
 {
     public function index(){
 
-        $usuario = User::all();
-        return view('Adminlte.usuarios.index')->with('usuarios',$usuario);
-    }
-    public function create2(){
-
-        //$usuarios = User::all();
-        return view('Adminlte.usuarios.create');
+        $usuario = User::paginate(10);
+        return view('Adminlte.usuarios.index')
+        ->with('usuarios',$usuario);
     }
 
     public function create(){
-        return view('usuarios.create');
+        return view('Adminlte.usuarios.form');
     }
-    public function store2(Request $request){
-        $request->validate([
-            'nombre'=>'required',
-            'apellido'=>'required',
-            'tipo_doc'=>'required',
-            'num_doc'=>'required',
-            'fecha_nac'=>'required',
-            'email'=>'required',
-            'contraseña'=>'required'
-        ]);
 
-        $usuario = new User();
-        
-        $usuario->nombre = $request->nombre;
-        $usuario->apellido = $request->apellido;
-        $usuario->tipo_doc = $request->tipo_doc;
-        $usuario->num_doc = $request->num_doc;
-        $usuario->fecha_nac = $request->fecha_nac;
-        $usuario->email = $request->email;
-        $usuario->contraseña = $request->contraseña;
-    
-        $usuario->save();
-        
-        return redirect()->route('adminlte.index');
-        
-    }
 
     public function store(Request $request){
         $request->validate([
@@ -58,19 +30,10 @@ class UsuarioController extends Controller
             'contraseña'=>'required'
         ]);
 
-        $usuario = new User();
-        
-        $usuario->nombre = $request->nombre;
-        $usuario->apellido = $request->apellido;
-        $usuario->tipo_doc = $request->tipo_doc;
-        $usuario->num_doc = $request->num_doc;
-        $usuario->fecha_nac = $request->fecha_nac;
-        $usuario->email = $request->email;
-        $usuario->contraseña = $request->contraseña;
-    
-        $usuario->save();
-        
-        return redirect()->route('usuarios.login');
+        $usuario = User::create($request->only('nombre', 'apellido', 'tipo_doc', 'num_doc', 'fecha_nac', 'email','contraseña'));
+
+        Session::flash('mensaje', 'Usuario creado con exito');
+        return redirect()->route('usuarios.index');
         
     }
 
@@ -80,7 +43,8 @@ class UsuarioController extends Controller
     }
     
     public function edit(User $usuario){
-        return view('usuarios.edit', compact('usuario'));
+        return view('Adminlte.usuarios.form')
+        ->with('usuario', $usuario);
     }
 
     public function update(Request $request , User $usuario){
@@ -91,32 +55,31 @@ class UsuarioController extends Controller
             'tipo_doc'=>'required',
             'num_doc'=>'required',
             'email'=>'required',
-            'contraseña'=>'required'
+            
         ]);
 
-        $usuario = new User();
-        
-        $usuario->nombre = $request->nombre;
-        $usuario->apellido = $request->apellido;
-        $usuario->tipo_doc = $request->tipo_doc;
-        $usuario->num_doc = $request->num_doc;
-        $usuario->fecha_nac = $request->fecha_nac;
-        $usuario->email = $request->email;
-        $usuario->contraseña = $request->contraseña;
+        $usuario->nombre = $request['nombre'];
+        $usuario->apellido = $request['apellido'];
+        $usuario->email = $request['email'];
+        $usuario->fecha_nac = $request['fecha_nac'];
+        $usuario->tipo_doc = $request['tipo_doc'];
+        $usuario->num_doc = $request['num_doc'];
+        $usuario->tel = $request['tel'];
+        $usuario->ciudad = $request['ciudad'];
+        $usuario->dire = $request['dire'];
+        $usuario->contraseña = $request['contraseña'];
     
         $usuario->save();
 
+        Session::flash('mensaje', 'Editado con exito');
         
-        return redirect()->route('usuarios.show',$usuario);
+        return redirect()->route('usuarios.index');
     }
 
     public function destroy(User $usuario){
         $usuario->delete();
-        return redirect()->route('/');
+        Session::flash('mensaje', 'usuario eliminado');
+        return redirect()->route('usuarios.index');
     }
 
-
-    public function login(){
-        return view('usuarios.login');
-    }
 }
