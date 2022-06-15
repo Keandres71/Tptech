@@ -21,16 +21,16 @@ class UsuarioController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'nombre'=>'required',
+            'name'=>'required',
             'apellido'=>'required',
             'tipo_doc'=>'required',
             'num_doc'=>'required',
             'fecha_nac'=>'required',
             'email'=>'required',
-            'contraseña'=>'required'
+            'password'=>'required'
         ]);
 
-        $usuario = User::create($request->only('nombre', 'apellido', 'tipo_doc', 'num_doc', 'fecha_nac', 'email','contraseña'));
+        $usuario = User::create($request->only('name', 'apellido', 'tipo_doc', 'num_doc', 'fecha_nac', 'email','password'));
 
         Session::flash('mensaje', 'Usuario creado con exito');
         return redirect()->route('usuarios.index');
@@ -50,7 +50,7 @@ class UsuarioController extends Controller
     public function update(Request $request , User $usuario){
         
         $request->validate([
-            'nombre'=>'required',
+            'name'=>'required',
             'apellido'=>'required',
             'tipo_doc'=>'required',
             'num_doc'=>'required',
@@ -58,7 +58,7 @@ class UsuarioController extends Controller
             
         ]);
 
-        $usuario->nombre = $request['nombre'];
+        $usuario->name = $request['name'];
         $usuario->apellido = $request['apellido'];
         $usuario->email = $request['email'];
         $usuario->fecha_nac = $request['fecha_nac'];
@@ -67,7 +67,7 @@ class UsuarioController extends Controller
         $usuario->tel = $request['tel'];
         $usuario->ciudad = $request['ciudad'];
         $usuario->dire = $request['dire'];
-        $usuario->contraseña = $request['contraseña'];
+        $usuario->password = $request['password'];
     
         $usuario->save();
 
