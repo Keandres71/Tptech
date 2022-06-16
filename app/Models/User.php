@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nombre',
         'apellido',
         'email',
         'tipo_doc',
@@ -28,7 +28,7 @@ class User extends Authenticatable
         'tel',
         'ciudad',
         'dire',
-        'password'
+        'contraseña'
     ];
 
     /**
@@ -37,7 +37,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'contraseña',
         'remember_token',
     ];
     
@@ -50,7 +50,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected function name(): Attribute
+    protected function nombre(): Attribute
     { 
         return new Attribute(
             set: function($value){
@@ -78,7 +78,7 @@ class User extends Authenticatable
 
     }
 
-    protected function password(): Attribute
+    protected function contraseña(): Attribute
     {
         return new Attribute(
             set: function($value){

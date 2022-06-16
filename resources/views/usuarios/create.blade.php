@@ -14,21 +14,21 @@
         
             <div class="form-container">
                 <h2 class="saludo">Registrarse</h2>
-                <form action="{{route('register')}}" method="POST">
+                <form action="{{route('usuarios.store')}}" method="post">
                     @csrf
                     <div class="input-field">
-                        <input class="input-input" type="text" name="name" placeholder=" " autocomplete="off" id="name">
-                        <label class="input-label" for="name">Nombre</la>
+                        <input class="input-input" type="nombre" name="nombre" placeholder=" " autocomplete="off" id="nombre">
+                        <label class="input-label" for="nombre">Nombre</la>
                     </div>
 
                     <div class="input-field">
-                        <input class="input-input" type="text" name="apellido" placeholder=" " autocomplete="off" id="apellido">
+                        <input class="input-input" type="apellido" name="apellido" placeholder=" " autocomplete="off" id="apellido">
                         <label class="input-label" for="apellido">Apellido</la>
                     </div>
 
                     <div class="input-field">
-                        <input class="input-input" type="email" name="email" placeholder=" " autocomplete="off" id="email">
-                        <label class="input-label" for="email">correo</la>
+                        <input class="input-input" type="email" name="email" placeholder=" " autocomplete="off" id="correo">
+                        <label class="input-label" for="correo">correo</la>
                     </div>
 
                     <div class="input-field">
@@ -47,17 +47,17 @@
                     </div>
 
                     <div class="input-field">
-                        <input class="input-input" type="number" name="num_doc" placeholder=" " autocomplete="off" id="num_doc">
+                        <input class="input-input" type="numdocumento" name="num_doc" placeholder=" " autocomplete="off" id="num_doc">
                         <label class="input-label" for="correo">Numero de documento</la>
                     </div>
 
 
                     <div class="input-field">
-                        <input class="input-input" type="password" name="passsword" placeholder=" " id="password">
+                        <input class="input-input" type="password" name="contraseña" placeholder=" " id="password">
                         <label class="input-label" for="password">contraseña</label>
                     </div>
                     
-                    <button type="submit" class="login-btn">Registrarse</button>
+                    <button type="submit"  class="login-btn">Registrarse</button>
                 </form>
 
                 <div class="login-options">

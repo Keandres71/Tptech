@@ -17,13 +17,13 @@ return new class extends Migration
             $table->engine = 'InnoDB';
             $table->id('id');
             $table->unsignedBigInteger('idrol')->default(1);
-            $table->string('name');
+            $table->string('nombre');
             $table->string('apellido');
             $table->string('email')->unique();
             $table->date('fecha_nac');
             $table->string('tipo_doc');
             $table->integer('num_doc');
-            $table->string('password')->lenght(280);
+            $table->string('contraseña')->lenght(280);
             $table->string('ciudad')->nullable();
             $table->string('dire')->nullable();
             $table->integer('tel')->nullable();

@@ -10,11 +10,10 @@
         
             <div class="form-container">
                 <h2 class="saludo">Bienvenido</h2>
-                <form action="{{'login'}}" method="POST">
-                    @csrf
+                <form action="">
                     <div class="input-field">
-                        <input class="input-input" type="email" name="email" placeholder=" " autocomplete="off" id="email">
-                        <label class="input-label" for="email">correo</la>
+                        <input class="input-input" type="email" name="email" placeholder=" " autocomplete="off" id="correo">
+                        <label class="input-label" for="correo">correo</la>
                     </div>
 
                     <div class="input-field">
@@ -22,8 +21,7 @@
                         <label class="input-label" for="password">contraseña</label>
                     </div>
                     
-                    <button class="login-btn" type="submit">Login</button>
-                    {{-- <input type="submit" value="Login"> --}}
+                    <button class="login-btn">Login</button>
                 </form>
 
                 <div class="login-options">

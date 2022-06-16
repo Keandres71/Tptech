@@ -22,9 +22,9 @@
     @csrf
         <div class="productos-form-container">
             <div class="form-group">
-                <label for="name" class="reportes-label">Nombre</label>
-                <input type="text" name="name" class="form-comtrol" placeholder="Nombre..."
-                value="{{old('name')??@$usuario->name}}">
+                <label for="nombre" class="reportes-label">Nombre</label>
+                <input type="text" name="nombre" class="form-comtrol" placeholder="Nombre..."
+                value="{{old('nombre')??@$usuario->nombre}}">
             </div>
 
 
@@ -61,8 +61,8 @@
             </div>
 
             <div class="form-group">
-                <label for="password" class="reportes-label">Contraseña</label>
-                <input type="password" name="password" id=""></input>
+                <label for="contraseña" class="reportes-label">Contraseña</label>
+                <input type="password" name="contraseña" id=""></input>
             </div>
 
 
