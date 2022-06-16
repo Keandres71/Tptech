@@ -28,7 +28,8 @@ class User extends Authenticatable
         'tel',
         'ciudad',
         'dire',
-        'password'
+        'password',
+        'password_confirmation',
     ];
 
     /**
@@ -38,6 +39,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
+        'password_confirmation',
         'remember_token',
     ];
     

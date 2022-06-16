@@ -20,16 +20,19 @@ return new class extends Migration
             $table->string('name');
             $table->string('apellido');
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->date('fecha_nac');
             $table->string('tipo_doc');
             $table->integer('num_doc');
             $table->string('password')->lenght(280);
+            $table->string('password_confirmation')->lenght(280);
             $table->string('ciudad')->nullable();
             $table->string('dire')->nullable();
             $table->integer('tel')->nullable();
             $table->rememberToken();
             $table->foreign('idrol')->references('id')->on('rols')->onDelete('cascade');
             $table->timestamps();
+            
         });
     }
 

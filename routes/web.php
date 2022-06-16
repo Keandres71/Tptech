@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProovedorController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,15 @@ Route::get('/', HomeController::class);
 
 Route::resource('Adminlte/usuarios', UsuarioController::class)->names('usuarios');
 
+/* Route::get('/register', function(){ 
+    return view('auth.register');
+});
+Route::get('/login', function(){ 
+    return view('auth.login');
+}); */
+
+Route::get('/register', [RegisterController::class, 'show'])->name('auth.show');
+Route::post('/register', [RegisterController::class, 'register'])->name('auth.register');
 
 Route::resource('Adminlte/productos', ProductoController::class)->names('Adminlte/productos');
 

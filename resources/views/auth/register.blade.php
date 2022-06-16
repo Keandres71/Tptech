@@ -14,7 +14,7 @@
         
             <div class="form-container">
                 <h2 class="saludo">Registrarse</h2>
-                <form action="" method="post">
+                <form action="{{route('auth.register')}}" method="post">
                     @csrf
                     <div class="input-field">
                         <input class="input-input" type="text" name="name" placeholder=" " autocomplete="off" id="name">
@@ -55,6 +55,11 @@
                     <div class="input-field">
                         <input class="input-input" type="password" name="password" placeholder=" " id="password">
                         <label class="input-label" for="password">contraseña</label>
+                    </div>
+
+                    <div class="input-field">
+                        <input class="input-input" type="password" name="password_confirmation" placeholder=" " id="password_confirmation">
+                        <label class="input-label" for="password_confirmation">confirmar contraseña</label>
                     </div>
                     
                     <button type="submit"  class="login-btn">Registrarse</button>
