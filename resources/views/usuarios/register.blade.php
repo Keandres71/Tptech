@@ -14,15 +14,15 @@
         
             <div class="form-container">
                 <h2 class="saludo">Registrarse</h2>
-                <form action="{{route('usuarios.store')}}" method="post">
+                <form action="" method="post">
                     @csrf
                     <div class="input-field">
-                        <input class="input-input" type="nombre" name="nombre" placeholder=" " autocomplete="off" id="nombre">
-                        <label class="input-label" for="nombre">Nombre</la>
+                        <input class="input-input" type="text" name="name" placeholder=" " autocomplete="off" id="name">
+                        <label class="input-label" for="name">Nombre</la>
                     </div>
 
                     <div class="input-field">
-                        <input class="input-input" type="apellido" name="apellido" placeholder=" " autocomplete="off" id="apellido">
+                        <input class="input-input" type="text" name="apellido" placeholder=" " autocomplete="off" id="apellido">
                         <label class="input-label" for="apellido">Apellido</la>
                     </div>
 
@@ -42,7 +42,7 @@
                         
                         <select   id="documento" name="tipo_doc">
                             <option value="Cedula">Cc</option>
-                            <option value="tarjeta">Ti</option>
+                            <option value="tarjeta de identidad">Ti</option>
                         </select>
                     </div>
 
@@ -53,7 +53,7 @@
 
 
                     <div class="input-field">
-                        <input class="input-input" type="password" name="contraseña" placeholder=" " id="password">
+                        <input class="input-input" type="password" name="password" placeholder=" " id="password">
                         <label class="input-label" for="password">contraseña</label>
                     </div>
                     
