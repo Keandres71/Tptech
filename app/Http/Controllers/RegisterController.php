@@ -12,19 +12,8 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function register(Request $request){
-        $request->validate([
-            'name'=>'required',
-            'apellido'=>'required',
-            'tipo_doc'=>'required',
-            'num_doc'=>'required',
-            'fecha_nac'=>'required',
-            'email'=>'required',
-            'password'=>'required',
-            'password_confirmation'=>'required'
-        ]);
-
-        $usuario = User::create($request->only('name', 'apellido', 'tipo_doc', 'num_doc', 'fecha_nac', 'email','password','password_confirmation'));
-
+    public function register(RegisterRequest $request){
+        $user = User::create($request->validated());
+        redirect('/login')->with('success', 'Cuenta creada con exito');
     }
 }

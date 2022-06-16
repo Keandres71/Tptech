@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProovedorController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -34,6 +35,9 @@ Route::get('/login', function(){
 
 Route::get('/register', [RegisterController::class, 'show'])->name('auth.show');
 Route::post('/register', [RegisterController::class, 'register'])->name('auth.register');
+
+Route::get('/login', [LoginController::class]);
+Route::post('/login', [LoginController::class]);
 
 Route::resource('Adminlte/productos', ProductoController::class)->names('Adminlte/productos');
 
