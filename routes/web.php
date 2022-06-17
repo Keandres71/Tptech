@@ -26,18 +26,12 @@ Route::get('/', HomeController::class);
 
 Route::resource('Adminlte/usuarios', UsuarioController::class)->names('usuarios');
 
-/* Route::get('/register', function(){ 
-    return view('auth.register');
-});
-Route::get('/login', function(){ 
-    return view('auth.login');
-}); */
 
 Route::get('/register', [RegisterController::class, 'show'])->name('auth.show');
 Route::post('/register', [RegisterController::class, 'register'])->name('auth.register');
 
-Route::get('/login', [LoginController::class]);
-Route::post('/login', [LoginController::class]);
+Route::get('/login', [LoginController::class, 'show'])->name('login.show');
+Route::post('/login', [LoginController::class, 'login'])->name('login.auth');
 
 Route::resource('Adminlte/productos', ProductoController::class)->names('Adminlte/productos');
 

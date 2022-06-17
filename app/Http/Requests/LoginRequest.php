@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
-
+use app\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 

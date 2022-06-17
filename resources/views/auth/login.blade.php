@@ -10,10 +10,11 @@
         
             <div class="form-container">
                 <h2 class="saludo">Bienvenido</h2>
-                <form action="">
+                <form action="{{route('login.auth')}}" method="POST">
+                    @csrf
                     <div class="input-field">
                         <input class="input-input" type="email" name="email" placeholder=" " autocomplete="off" id="correo">
-                        <label class="input-label" for="correo">correo</la>
+                        <label class="input-label" for="email">correo</la>
                     </div>
 
                     <div class="input-field">
