@@ -24,8 +24,7 @@ return new class extends Migration
             $table->date('fecha_nac');
             $table->string('tipo_doc');
             $table->integer('num_doc');
-            $table->string('password')->lenght(280);
-            $table->string('password_confirmation')->lenght(280);
+            $table->string('password');
             $table->string('ciudad')->nullable();
             $table->string('dire')->nullable();
             $table->integer('tel')->nullable();

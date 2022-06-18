@@ -10,7 +10,7 @@
         
             <div class="form-container">
                 <h2 class="saludo">Bienvenido</h2>
-                <form action="{{route('login.auth')}}" method="POST">
+                <form action="{{ route('login') }}" method="POST">
                     @csrf
                     <div class="input-field">
                         <input class="input-input" type="email" name="email" placeholder=" " autocomplete="off" id="correo">
@@ -22,12 +22,12 @@
                         <label class="input-label" for="password">contraseña</label>
                     </div>
                     
-                    <button class="login-btn">Login</button>
+                    <button class="login-btn" type="submit">Login</button>
                 </form>
 
                 <div class="login-options">
                     <a href="loginrecuperar.html">Recuperar contraseña</a>
-                    <a href="loginregister.html">Registrarse</a>
+                    <a href="{{ route('register') }}">Registrarse</a>
                 </div>
             </div>
         </main>

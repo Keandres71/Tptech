@@ -18,13 +18,42 @@
     
                 <nav class="nav-pag">
                     <ul>
-                        <li><a href="#">Nosotros</a></li>
-                        <li><a href="#">Contacto</a></li>
-                        <li><a href="{{route('login.show')}}">Ingresar</a></li>
-                        <li class="sign-up"><a href="{{route('auth.show')}}">Registrarse</a></li>
+                @guest
+                    
+                    @if (Route::has('login'))                        
+                        <li>
+                            <a href="{{route('login')}}">Ingresar</a>
+                        </li>
+                    @endif
+                    
+                    @if (Route::has('register'))                        
+                        <li class="sign-up">
+                            <a href="{{route('register')}}">Registrarse</a>
+                        </li>
+                    @endif
+                    
+                    
+                    @else
+                        <li class="fa-solid fa-cart-shopping">
+                            <a href="">
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    
+                                    <input type="submit" value="SALIR">
+                                </form>
+                            </div>
+                        </li>
+
+
+                        @endguest
                         <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
                         <li><input type="text" class="barra-busqueda"></div></li>
-                    </ul>
+                </ul>
+                    
                 </nav>
             </div>
         </div>

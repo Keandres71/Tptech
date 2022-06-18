@@ -14,7 +14,7 @@
         
             <div class="form-container">
                 <h2 class="saludo">Registrarse</h2>
-                <form action="{{route('auth.register')}}" method="post">
+                <form action="{{route('register')}}" method="POST">
                     @csrf
                     <div class="input-field">
                         <input class="input-input" type="text" name="name" placeholder=" " autocomplete="off" id="name">
@@ -27,13 +27,13 @@
                     </div>
 
                     <div class="input-field">
-                        <input class="input-input" type="email" name="email" placeholder=" " autocomplete="off" id="correo">
-                        <label class="input-label" for="correo">correo</la>
+                        <input class="input-input" type="email" name="email" placeholder=" " autocomplete="off" id="email">
+                        <label class="input-label" for="email">correo</la>
                     </div>
 
                     <div class="input-field">
-                        <input class="input-input" type="date" name="fecha_nac" placeholder=" " autocomplete="off" id="fecha">
-                        <label class="input-label" for="correo">Fecha de nacimiento</la>
+                        <input class="input-input" type="date" name="fecha_nac" placeholder=" " autocomplete="off" id="fecha_nac">
+                        <label class="input-label" for="fecha_nac">Fecha de nacimiento</la>
                     </div>
 
                     <div class="input-field documento">
@@ -47,8 +47,8 @@
                     </div>
 
                     <div class="input-field">
-                        <input class="input-input" type="numdocumento" name="num_doc" placeholder=" " autocomplete="off" id="num_doc">
-                        <label class="input-label" for="correo">Numero de documento</la>
+                        <input class="input-input" type="number" name="num_doc" placeholder=" " autocomplete="off" id="num_doc">
+                        <label class="input-label" for="num_doc">Numero de documento</la>
                     </div>
 
 
@@ -62,17 +62,18 @@
                         <label class="input-label" for="password_confirmation">confirmar contraseña</label>
                     </div>
                     
-                    <button type="submit"  class="login-btn">Registrarse</button>
+                    <button type="submit"  class="login-btn">
+                        {{ __('Register') }}
+                    </button>
                 </form>
 
-                <div class="login-options">
+{{--                 <div class="login-options">
                     <a href="loginrecuperar.html">Recuperar contraseña</a>
                     <a href="login.html">Iniciar sesión</a>
-                </div>
+                </div> --}}
             </div>
         </main>
     </div>
 </div>
 
 @endsection
-    

@@ -29,7 +29,6 @@ class User extends Authenticatable
         'ciudad',
         'dire',
         'password',
-        'password_confirmation',
     ];
 
     /**
@@ -39,7 +38,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'password_confirmation',
         'remember_token',
     ];
     
@@ -52,7 +50,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected function name(): Attribute
+/*     protected function name(): Attribute
     { 
         return new Attribute(
             set: function($value){
@@ -78,8 +76,8 @@ class User extends Authenticatable
             }
         );
 
-    }
-
+    } */
+/* 
     protected function password(): Attribute
     {
         return new Attribute(
@@ -96,6 +94,6 @@ class User extends Authenticatable
                 return encrypt($value);
             }
         );
-    }
+    } */
 
 }

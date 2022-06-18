@@ -2,12 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductoController;
+
 use App\Http\Controllers\ProovedorController;
-use App\Http\Controllers\UsuarioController;
-use App\Http\Controllers\CategoriaController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,30 +20,8 @@ use App\Http\Controllers\RegisterController;
 //RUTA DE INICIO DE LA PAGINA
 Route::get('/', HomeController::class);
 
-
-Route::resource('Adminlte/usuarios', UsuarioController::class)->names('usuarios');
-
-
-Route::get('/register', [RegisterController::class, 'show'])->name('auth.show');
-Route::post('/register', [RegisterController::class, 'register'])->name('auth.register');
-
-Route::get('/login', [LoginController::class, 'show'])->name('login.show');
-Route::post('/login', [LoginController::class, 'login'])->name('login.auth');
-
-Route::resource('Adminlte/productos', ProductoController::class)->names('Adminlte/productos');
+Auth::routes();
 
 
 
-
-
-Route::controller(ProovedorController::class)->group(function(){
-    Route::get('Adminlte/proovedores', 'index')->name('proovedores.index');
-    Route::get('Adminlte/proovedores/create', 'store')->name('proovedores.create');
-    Route::get('Adminlte/proovedores/{producto}', 'show')->name('proovedores.id');
-});
-
-// Rutas de Categorias del AdminLTE
-
-Route::resource('Adminlte/categorias', CategoriaController::class)->names('AdminLte/categorias');
-
-
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
