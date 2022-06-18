@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="bg-login">
-    <div class="wrapper">
+    <div class="wrapper-proyect">
         <main class="form-section">
             <div class="login-logo">
-                
+                <img src="{{asset('img/iphone_morado.png')}}" alt="">
             </div>
         
             <div class="form-container">

@@ -4,11 +4,10 @@
 
 
 <div class="bg-login">
-    <div class="wrapper">
+    <div class="wrapper-proyect">
         <main class="form-section">
             <div class="login-logo">
-                
-                
+                <img src="{{asset('img/xiaomi_12.png')}}" alt="">
             </div>
             
         
@@ -36,7 +35,7 @@
                         <label class="input-label" for="fecha_nac">Fecha de nacimiento</la>
                     </div>
 
-                    <div class="input-field documento">
+                    {{-- <div class="input-field documento">
                        
                         <label class="" for="documento">Tipo de documento</label>
                         
@@ -44,12 +43,12 @@
                             <option value="Cedula">Cc</option>
                             <option value="tarjeta de identidad">Ti</option>
                         </select>
-                    </div>
+                    </div> --}}
 
-                    <div class="input-field">
+                    {{-- <div class="input-field">
                         <input class="input-input" type="number" name="num_doc" placeholder=" " autocomplete="off" id="num_doc">
                         <label class="input-label" for="num_doc">Numero de documento</la>
-                    </div>
+                    </div> --}}
 
 
                     <div class="input-field">

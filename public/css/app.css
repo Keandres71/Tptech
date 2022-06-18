@@ -5,54 +5,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+
 :root {
-    --aguaMarina: #64D2D2;
-    --fondo: #f7f7f7;
-    --hueso: #cacaca;
-    --links: hsl(0, 0%, 88%);
+    --header: #764ab0;
+    --header_hover: #9264cf;
+
 }
 
 /*********** reset ***********/
-* {
+*, *::before, *::after {
     box-sizing: border-box;
-}
-
-h1,h2,h3,h4,h5 {
-    margin: 0;
-}
-
-a {
-    /* color: var(--hueso); */
-    text-decoration: none;
-    color: rgb(226, 226, 226);
-}
-
-a:hover {
-    color: white;
-}
-
-a:visited {
-    color:none;
-}
-
-ul {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-}
-
-img {
-    width: 100%;
-    object-fit: cover;
-}
-
-p {
-    line-height: 1.8;
-}
-
-.active {
-    text-decoration: underline;
-    font-weight: bold;
 }
 
 
@@ -76,113 +38,6 @@ select {
     border-radius: .3em;
 } */
 
-
-body {
-    font-family: 'poppins', sans-serif;
-}
-
-.logo {
-    font-weight: bold;
-    font-size: 2rem;
-}
-
-
-/************** INDEX *******************/
-
-
-header {
-    background-color: rgb(13, 42, 59);
-}
-
-.header-grid {
-    display: flex;
-    justify-content: space-between;
-    padding: 1em 0;
-}
-
-
-header a {
-    color: var(--links);
-}
-
-header ul {
-    display: flex;
-}
-
-li {
-    list-style: none;
-}
-
-header li {
-    margin-left: 2em;
-}
-
-section {
-    margin-top: 2em;
-}
-
-.promociones {
-    width: 100%;
-    height: 35em;
-    /* background-color: red; */
-    display: grid;
-    grid-template-columns: 60% auto;
-    grid-template-rows: 10em;
-    gap: 1em;
-    grid-template-areas:
-        'top top'
-        'left right'
-}
-
-.top {
-    grid-area: top;
-    background-image: url(https://www.falabella.com.co/static/RDF/site/Huinchas_catalyst/Electro/2022/Mayo/img/H_Xiaomi12_Desk.png?v=12345);
-    background-size: cover;
-    height: 10em;
-    
-}
-
-.left {
-    background-image: url(https://tienda.claro.com.co/wcsstore/Claro/images/contenidos/Imagenes/Destacados/iphone_12_1junio_D.jpg);
-    background-size: cover;
-}
-
-.right {
-    background-image: url(https://tienda.claro.com.co/wcsstore/Claro/images/contenidos/Imagenes/Destacados/xiaomi_note10pro_2junio_D.jpg);
-    background-size: 150%;
-    background-position: -8em -2.5em;
-
-}
-
-.promociones .promo-tarjeta {
-    background-color: pink;
-}
-
-.marcas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
-    border: 1px; ;
-    background-color: rgb(225, 229, 232);
-    padding: .8em;
-    border-radius: 1em;
-}
-
-.marcas li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.marca-tarjeta {
-    width: 5em;
-    height: 5em;
-    border-radius: 50%;
-    background-color: rgb(16, 15, 15);
-    overflow: hidden;
-}
-
-
-
 /***************** LOGIN ****************************/
 
 .bg-login {
@@ -199,10 +54,10 @@ section {
 
 .form-section {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     place-items: center;
-    height: 85vh;
-    margin-top: 3em;
+    /* height: 85vh; */
+    margin: 7em 0;
 }
 
 .form-section img {
@@ -214,10 +69,14 @@ section {
     /* margin: 10em auto 0; */
     text-align: center;
     width: fit-content;
-    border: 1px solid rgb(29, 18, 18);
-    border-radius: 3em;
+    /* border: 1px solid rgb(29, 18, 18); */
+    border-radius: 1em;
     padding: 1.5em;
     background-color: #fff;
+}
+
+.form-container a {
+    color: rgba(0, 0, 0, .5);
 }
 
 .input-field {
@@ -228,18 +87,18 @@ section {
     position: absolute;
     top: 1.2em;
     left: 1em;
-    color: rgba(0, 0, 0, .2);
+    color: rgba(0, 0, 0, .5);
     cursor: text;
 
     transition: all 200ms ease-in-out;
 }
 
 .input-input:hover {
-    outline-color: #badcdc;
+    outline-color: var(--header_hover);
 }
-.input-input:focus {
-    outline-color: #8fbdbd;
-}
+/* .input-input:focus {
+    outline-color: var(--header);
+} */
 
 .input-input:focus ~ .input-label,
 .input-input:not(:placeholder-shown).input-input:not(:focus) ~ .input-label {
@@ -258,8 +117,8 @@ section {
     margin-bottom: 1em;
     border-radius: 1em;
     border: none;
-    outline: 2px solid #d8ecec;
-    background: #D8ECEC;
+    outline: 1px solid rgba(0, 0, 0, 0.2);
+    background: #fff;
 }
 
 .form-container a:hover {
@@ -280,6 +139,18 @@ form {
     grid-template-columns: 1fr;
 }
 
+.login-logo {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-content: center;
+}
+
+.login-logo img {
+    width: 90%;
+    object-fit: cover;
+}
+
 .login-btn {
     font-size: 1rem;
     text-align: center;
@@ -288,7 +159,8 @@ form {
     margin-bottom: 1em;
     border-radius: 1em;
     border: none;
-    background: #40C7F1;
+    background: var(--header);
+    color: #fff;
 
     transition: all .1s ease;
 }
@@ -452,85 +324,11 @@ form {
     padding: .5em;
 }
 
-/*  FOOTER  */
-
-footer {
-    background-color: #f1f1f1;
-    height: 15vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5em;
-}
-
-.media {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.media li {
-    margin-inline: 1em;
-}
-
-
-.media i {
-    /* padding: 0 1em; */
-    font-size: 1.6rem;
-    background: #000;
-    padding: .5em;
-    border-radius: 50%;
-}
-
-.media i:hover {
-    background-color: rgb(85, 85, 85);
-    color: #40C7F1;
-}
 
 
 
 
 /***************** PRODUCTOS ****************************/
-
-.toggle input[type="checkbox"] {
-    position: relative;
-    width: 2.5em;
-    height: 1.25em;
-    background: #bdc3c7;
-    -webkit-appearance: none;
-    border-radius: 1.25em;
-    outline: none;
-    transition: .4s;
-    box-shadow: 0 0 5px rgba(0, 0, 0, .2) inset;
-    cursor: pointer;
-}
-
-.toggle input:checked[type="checkbox"] {
-    background: #2aa6f8;
-}
-
-.toggle input[type="checkbox"]::before {
-    position: absolute;
-    content: '';
-    left: 0;
-    width: 1.25em;
-    height: 1.25em;
-    background-color: #fff;
-    border-radius: 50%;
-    transform: scale(1.1);
-    box-shadow: 0 0.125em 0.313em;
-    transition: .2s ease-in-out;
-}
-
-.toggle input:checked[type="checkbox"]::before {
-    left: 1.25em;
-}
-
-.toggle input:hover[type="checkbox"]::before {
-    box-shadow: 0 0.125em 0.42em;
-}
-
 
 .botones {
     margin: 0 auto;
@@ -640,4 +438,220 @@ textarea {
 .show-agregar-carrito:hover {
     background: rgb(55, 248, 29);
     color: #000;
+}
+
+/*********** reset ***********/
+
+*, 
+*::before, 
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'poppins', sans-serif;
+    font-size: 16px;
+}
+
+.grid {
+    display: grid;
+}
+
+.wrapper-proyect {
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+input {
+    width: 100%;
+    padding: .6em;
+    border-radius: .5em;
+    border: 1px solid rgba(0, 0, 0, .2);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+p {
+    color: #000;
+}
+
+.relative {
+    position: relative;
+}
+
+img {
+    width: 100%;
+}
+
+section {
+    margin-top: 1em;
+}
+/*********** HOME ***********/
+
+header,
+footer {
+    background: var(--header);
+    /* font-size: 1.2rem; */
+}
+
+.header__nav {
+    padding: 1em;
+    grid-template-columns: 20% auto 20%;
+    align-items: center;
+}
+
+.header__busqueda {
+    position: relative;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+
+.header__lupa {
+    padding: 1em;
+    /* border-radius: 0 50% 50% 0; */
+    /* background-color: pink; */
+    position: absolute;
+    right: 0;
+    cursor: text;
+}
+
+.header__icons {
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    font-size: 1.2rem;
+}
+
+.header__menu_vertical_user {
+    position: absolute;
+    display: none;
+    background-color: var(--header);
+    border-radius: .2em;
+    left: -225%;
+}
+
+.header__menu_vertical_user > li:hover {
+    background-color: #9264cf;
+}
+
+.header__menu_horizontal li:hover .header__menu_vertical_user {
+    display: block;
+}
+
+.header__menu_vertical_user a {
+    display: block;
+    padding: .6em;
+
+}
+
+.distribuidores {
+    margin-top: 5em;
+    margin-bottom: 2em;
+}
+
+.marcas {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0em;
+    /* margin-top: 1em; */
+    width: 70%;
+    margin-inline: auto;
+    padding: 1em;
+    /* background-color: var(--header); */
+}
+
+.marcas > li {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    background-color: rgb(16, 15, 15);
+    overflow: hidden;
+}
+
+h2 {
+    text-align: center;
+}
+
+picture img {
+    margin-top: 2em;
+
+}
+
+.tienda {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3em 1em;
+    margin-top: 2em;
+}
+
+.card__tienda {
+    box-shadow: 0 .2em .3em rgba(0,0,0,.2);
+    border-radius: .3em;
+    padding: 1em;
+
+    transition: all .2s ease-in-out;
+}
+
+.card__tienda:hover {
+    transform: translateY(-.5em);
+    box-shadow: 0 .2em .5em rgba(0,0,0,.4);
+}
+
+footer {
+    padding: 2em;
+    margin-top: 3em;;
+}
+
+.pages {
+    margin-top: 4em;
+    display: grid;
+    place-items: center;
+    
+}
+
+.pages ul {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    font-size: 1.2rem;
+}
+
+.pages li {
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(0,0,0,.2);
+}
+
+.pages li > * {
+    padding: .5em;
+}
+
+.footer {
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    color: #fff;
+}
+
+.footer__politicas li {
+    margin-bottom: 1em;
+}
+
+.footer__politicas li:nth-last-of-type() {
+    margin-bottom: 0em;
+}
+
+.footer p {
+    color: #fff;
+}
+
+.footer__redes {
+    font-size: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .3em;
 }
