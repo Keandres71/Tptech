@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->date('fecha_nac');
-            $table->string('tipo_doc');
-            $table->integer('num_doc');
+            $table->string('tipo_doc')->nullable();
+            $table->integer('num_doc')->nullable();
             $table->string('password');
             $table->string('ciudad')->nullable();
             $table->string('dire')->nullable();
