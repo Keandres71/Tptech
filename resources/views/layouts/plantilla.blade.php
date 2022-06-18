@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" >
-    <title>Document</title>
+    <title>TpTech</title>
 </head>
 <body>
     <header>
@@ -47,7 +47,7 @@
                             @endif
 
                             @else
-                                <li class="fa-solid fa-cart-shopping">
+                                <li class="sign-up">
                                     <a href="">
                                         {{ Auth::user()->name }}
                                     </a>
