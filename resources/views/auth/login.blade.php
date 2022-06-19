@@ -13,14 +13,26 @@
                 <form action="{{ route('login') }}" method="POST">
                     @csrf
                     <div class="input-field">
-                        <input class="input-input" type="email" name="email" placeholder=" " autocomplete="off" id="correo">
+                        <input class="input-input" type="email" name="email" placeholder=" " autocomplete="off" id="correo" value="{{ old('email') }}">
                         <label class="input-label" for="email">correo</la>
                     </div>
+
+                    @error('email')
+                        <p>
+                            * {{ $message }}
+                        </p>                   
+                    @enderror
 
                     <div class="input-field">
                         <input class="input-input" type="password" name="password" placeholder=" " id="password">
                         <label class="input-label" for="password">contraseña</label>
                     </div>
+
+                    @error('password')
+                    <p>
+                        * {{ $message }}
+                    </p>                   
+                    @enderror
                     
                     <button class="login-btn" type="submit">Login</button>
                 </form>

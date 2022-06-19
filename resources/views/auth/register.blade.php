@@ -16,39 +16,47 @@
                 <form action="{{route('register')}}" method="POST">
                     @csrf
                     <div class="input-field">
-                        <input class="input-input" type="text" name="name" placeholder=" " autocomplete="off" id="name">
+                        <input class="input-input" type="text" name="name" placeholder=" " autocomplete="off" id="name" value="{{ old('name') }}">
                         <label class="input-label" for="name">Nombre</la>
                     </div>
+                    @error('name')
+                    <p>
+                        * {{ $message }}
+                    </p>                   
+                    @enderror
 
                     <div class="input-field">
-                        <input class="input-input" type="text" name="apellido" placeholder=" " autocomplete="off" id="apellido">
+                        <input class="input-input" type="text" name="apellido" placeholder=" " autocomplete="off" id="apellido" value="{{ old('apellido') }}">
                         <label class="input-label" for="apellido">Apellido</la>
                     </div>
 
+                    @error('apellido')
+                    <p>
+                        * {{ $message }}
+                    </p>                   
+                    @enderror
+
                     <div class="input-field">
-                        <input class="input-input" type="email" name="email" placeholder=" " autocomplete="off" id="email">
+                        <input class="input-input" type="email" name="email" placeholder=" " autocomplete="off" id="email" value="{{ old('email') }}">
                         <label class="input-label" for="email">correo</la>
                     </div>
 
+                    @error('email')
+                    <p>
+                        * {{ $message }}
+                    </p>                   
+                    @enderror
+
                     <div class="input-field">
-                        <input class="input-input" type="date" name="fecha_nac" placeholder=" " autocomplete="off" id="fecha_nac">
+                        <input class="input-input" type="date" name="fecha_nac" placeholder=" " autocomplete="off" id="fecha_nac" value="{{ old('fecha_nac') }}">
                         <label class="input-label" for="fecha_nac">Fecha de nacimiento</la>
                     </div>
 
-                    {{-- <div class="input-field documento">
-                       
-                        <label class="" for="documento">Tipo de documento</label>
-                        
-                        <select   id="documento" name="tipo_doc">
-                            <option value="Cedula">Cc</option>
-                            <option value="tarjeta de identidad">Ti</option>
-                        </select>
-                    </div> --}}
-
-                    {{-- <div class="input-field">
-                        <input class="input-input" type="number" name="num_doc" placeholder=" " autocomplete="off" id="num_doc">
-                        <label class="input-label" for="num_doc">Numero de documento</la>
-                    </div> --}}
+                    @error('fecha_nac')
+                    <p>
+                        * {{ $message }}
+                    </p>                   
+                    @enderror
 
 
                     <div class="input-field">
@@ -56,10 +64,22 @@
                         <label class="input-label" for="password">contraseña</label>
                     </div>
 
+                    @error('password')
+                    <p>
+                        * {{ $message }}
+                    </p>                   
+                    @enderror
+
                     <div class="input-field">
                         <input class="input-input" type="password" name="password_confirmation" placeholder=" " id="password_confirmation">
                         <label class="input-label" for="password_confirmation">confirmar contraseña</label>
                     </div>
+
+                    @error('password_confirmation')
+                    <p>
+                        * {{ $message }}
+                    </p>                   
+                    @enderror
                     
                     <button type="submit"  class="login-btn">
                         {{ __('Register') }}

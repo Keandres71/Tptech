@@ -52,6 +52,9 @@
                                         {{ Auth::user()->name }}
                                     </a>
 
+                                </li>
+                                <li>
+
                                     <div>
                                         <form action="{{ route('logout') }}" method="POST">
                                             @csrf
@@ -60,7 +63,7 @@
                                         </form>
                                     </div>
                                 </li>
-
+                                    
                         @endguest
                 </ul>
                     
