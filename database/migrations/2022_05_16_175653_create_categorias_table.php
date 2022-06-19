@@ -17,7 +17,7 @@ return new class extends Migration
             $table->engine = 'InnoDB';
             $table->id('id');
             $table->string('tipo');
-            $table->timestamps();
+
 
         });
 

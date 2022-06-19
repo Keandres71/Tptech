@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('dire')->nullable();
             $table->integer('tel')->nullable();
             $table->rememberToken();
-            $table->foreign('idrol')->references('id')->on('rols')->onDelete('cascade');
+            $table->foreign('idrol')->references('id')->on('roles')->onDelete('cascade');
             $table->timestamps();
             
         });

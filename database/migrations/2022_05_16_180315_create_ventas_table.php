@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rols', function (Blueprint $table) {
+        Schema::create('ventas', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id('id');
-            $table->string('tipo');
+            $table->unsignedBigInteger('iduser');
+            $table->double('iva');
+            $table->double('total');
+            $table->double('neto');
             $table->timestamps();
+            $table->foreign('iduser')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rols');
+        Schema::dropIfExists('facturas');
     }
 };

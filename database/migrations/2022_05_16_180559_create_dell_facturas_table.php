@@ -23,7 +23,7 @@ return new class extends Migration
             $table->double('total');
             $table->double('iva');
             $table->timestamps();
-            $table->foreign('idfactu')->references('id')->on('facturas')->onDelete('cascade');
+            $table->foreign('idfactu')->references('id')->on('ventas')->onDelete('cascade');
 
             $table->foreign('idproduct')->references('id')->on('productos')->onDelete('cascade');
         });
