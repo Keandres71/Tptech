@@ -53,6 +53,13 @@
                                     </a>
 
                                 </li>
+
+                                <li class="sign-up">
+                                    <a href="{{route('NewPassword')}}">
+                                        Editar Perfil
+                                    </a>
+
+                                </li>
                                 <li>
 
                                     <div>
