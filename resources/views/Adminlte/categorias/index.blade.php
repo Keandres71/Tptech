@@ -1,51 +1,77 @@
 @extends('Adminlte.layouts')
 @section('content')
-@section('css')
-    <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}" >
-@stop
-  @if (Session::has('mensaje'))
-<div class="alert.alert-info.my-5">
-{{Session::get('mensaje')}}
-@endif  
 
-<h1 class="reportes-titulo">categorias</h1>
-<button class="boton agregar"><a href="{{route('AdminLte/categorias.create')}}">Agregar Categoria</a></button>
+    <div class="container-fluid">
 
-<div class="reportes-data">
-    <table class="reportes-table">
-        <thead class="reportes-table-head">
-            <th>Codigo</th>
-            <th>Tipo</th>
-        </thead>
-        <tbody class="reportes-table-body">
-            <tr>
-               @forelse ($categorias as $item)
-                    <td>{{$item->id}} </td>
-                    <td>{{$item->tipo}}</td>
-                </td>
-                <div class="botones">
-                <td><a href="{{route('AdminLte/categorias.edit',$item)}}"  class="boton editar">  Editar </a>
-                <form action="{{route('AdminLte/categorias.destroy',$item)}}" method="post" class="d-inline">
-                @method('DELETE')
-                @csrf
-                <button type="submit" class="boton eliminar">Eliminar</button>
-                </form>
-                
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+
+                            <span class="card-title">
+                                {{ __('Administrar categorias') }}
+                            </span>
+
+                            <div class="float-right">
+                                <a href="{{ route('AdminLte/categorias.create') }}" class="btn btn-primary btm-sm float-right">Nueva categoria</a>
+                            </div>
+
+                        </div>
+
                     </div>
-                </td>
 
-            </tr>
-             @empty
-                   <tr>     
-                <td> No hay Categorias Disponibles</td>
-            </tr>
-            @endforelse           
-        </tbody>
-    </table>
-    <div class="d-flex justify-content-center">
-    {!! $categorias->links() !!}
-</div>
-</div>
+                    <div class="card-body">
 
+                        <table class="reportes-table">
+
+                            <thead class="reportes-table-head">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nombre categoria</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            @include('layouts.mensaje-error')
+                            <tbody class="reportes-table-body">
+                                @foreach ($categorias as $categoria)
+
+                                    <tr>
+                                        <td>{{ $i++ }}</td>
+                                        <td>{{ $categoria->tipo }}</td>
+                                        <td>
+                                            <form action="{{route('AdminLte/categorias.destroy',$categoria)}}" method="post" class="d-inline form-delete">
+                                                <a class="btn btn-sm btn-success" href="{{ route('AdminLte/categorias.edit',$categoria) }}"><i class="fa fa-fw fa-edit"></i>Editar</a>
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Eliminar</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+
+                                @endforeach
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    {!! $categorias->links() !!}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+@endsection
+
+@section('js')
+    <script src="{{ asset('js/plugins/sweetalert.js') }}"></script>
 @endsection

@@ -16,11 +16,14 @@ return new class extends Migration
         Schema::create('ventas', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id('id');
+            $table->bigInteger('codigo');
             $table->unsignedBigInteger('iduser');
+            $table->text('productos');
             $table->double('iva');
             $table->double('total');
             $table->double('neto');
-            $table->timestamps();
+            $table->text('metodo_pago');
+            $table->timestamp('fecha_venta');
             $table->foreign('iduser')->references('id')->on('users')->onDelete('cascade');
         });
     }

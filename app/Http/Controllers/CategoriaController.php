@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class CategoriaController extends Controller
 {
     public function index()
-
     {
-        $categoria = Categoria::paginate(5);
-        return view('Adminlte.categorias.index')
-        ->with('categorias', $categoria);
+        $i=1;
+        $categorias = Categoria::paginate();
+        return view('Adminlte.categorias.index',compact('categorias','i'));
     }
 
- 
+
     public function create()
     {
         return view('Adminlte.categorias.form');
@@ -31,14 +31,8 @@ class CategoriaController extends Controller
         ]);
         $categoria = Categoria::create($request->only('id', 'tipo'));
 
-        Session::flash('mensaje', 'La Categoria se creo con exito.');
-
-        return redirect()->route('AdminLte/categorias.index');
-    }
-
-  
-    public function show(Categoria $categoria)
-    {
+        return redirect()->route('AdminLte/categorias.index')
+            ->with('success', 'La categoria se creo correctamente.');
     }
 
     public function edit(Categoria $categoria)
@@ -58,18 +52,23 @@ class CategoriaController extends Controller
         $categoria->tipo = $request['tipo'];
         $categoria->save();
 
-        Session::flash('mensaje', 'La Categoria se Modifico con exito.');
-
-        return redirect()->route('AdminLte/categorias.index');
+        return redirect()->route('AdminLte/categorias.index')
+            ->with('success', 'La categoria se actualizo correctamente.');
     }
 
 
-    public function destroy(Categoria $categoria)
-    {
-        $categoria->delete();
+    public function destroy(Categoria $categoria){
 
-        Session::flash('mensaje', 'registro Eliminado con Exito.');
+        $productos = Producto::where('idcag','=',$categoria->id)->get();
 
-        return redirect()->route('AdminLte/categorias.index');
+        if(count($productos) != 0){
+            return redirect()->route('AdminLte/categorias.index')
+                ->with('error', 'Esta categoria contiene productos, no se puede eliminar.');
+        }else {
+            $categoria->delete();
+            return redirect()->route('AdminLte/categorias.index')
+                ->with('success', 'La categoria se elimino correctamente.');
+        }
+
     }
 }

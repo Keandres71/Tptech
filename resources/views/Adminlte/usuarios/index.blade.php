@@ -1,9 +1,6 @@
 @extends('Adminlte.layouts')
+
 @section('content')
-@section('css')
-    <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}" >
-@stop
 
 @if (Session::has('mensaje'))
 <div class="alert.alert-info.my-5">
@@ -21,7 +18,8 @@
         <thead class="reportes-table-head">
             <th>Nombre</th>
             <th>Apellidos</th>
-            <th>Correo</th>  
+            <th>Correo</th>
+            <th>Acciones</th>
         </thead>
 
         <tbody class="reportes-table-body">
@@ -37,7 +35,7 @@
                     <a href="{{route('usuarios.edit',$usuario)}}" class="boton editar">Editar</a>
                     <form action="{{route('usuarios.destroy', $usuario)}}" method="POST" class="d-inline">
                         @method('DELETE')
-                        @csrf                       
+                        @csrf
                         <button type="submit" class="boton eliminar">Eliminar</button>
                     </form>
                 </div>
@@ -46,17 +44,17 @@
 
         </tr>
         @empty
-        
+
             <tr>
                 <p>No hay usuarios</p>
             </tr>
-        
+
         @endforelse
         </tbody>
     </table>
     @if ($usuarios->count())
     {{$usuarios->links()}}
-        
+
     @endif
 </div>
 

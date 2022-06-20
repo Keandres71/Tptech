@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id('id');
-            $table->unsignedBigInteger('idrol')->default(1);
             $table->string('name');
             $table->string('apellido');
             $table->string('email')->unique();
@@ -29,9 +28,8 @@ return new class extends Migration
             $table->string('dire')->nullable();
             $table->integer('tel')->nullable();
             $table->rememberToken();
-            $table->foreign('idrol')->references('id')->on('roles')->onDelete('cascade');
             $table->timestamps();
-            
+
         });
     }
 

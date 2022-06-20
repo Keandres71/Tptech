@@ -7,5 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categoria extends Model
 {
-    protected $fillable = ['id', 'tipo'];
+    public $timestamps = false;
+    protected $fillable = [
+        'id',
+        'tipo'
+    ];
+
+    public function productos()
+    {
+        return $this->hasMany('App\Models\Producto', 'idcag', 'id');
+    }
+
 }

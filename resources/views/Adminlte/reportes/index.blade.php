@@ -1,11 +1,7 @@
 @extends('Adminlte.layouts')
 
 @section('content')
-@section('css')
-<link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
-<link rel="stylesheet" href="{{ asset('css/app.css') }}">
-@stop
-    
+
 <h1 class="reportes-titulo">Reportes de venta</h1>
     <div class="grid-reportes">
         <div class="reportes-sidebar">
