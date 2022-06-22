@@ -19,11 +19,16 @@ use App\Http\Controllers\ProovedorController;
 */
 
 //RUTA DE INICIO DE LA PAGINA
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 
 Auth::routes();
 
-Route::get('/UpdateProfile' , [EditUserController::class, 'NewPassword'])->name('NewPassword')->middleware('auth');
+//RUTA PARA EDITAR PERFIL USUARIO
+Route::get('/UpdateProfile', [EditUserController::class, 'NewProfile'])->name('NewProfile')->middleware('auth');
+Route::put('/changeProfile', [EditUserController::class, 'changeProfile'])->name('changeProfile');
+
+// RUTA PARA CAMBIO DE CONTRASEÑA
+Route::get('/UpdatePassword' , [EditUserController::class, 'NewPassword'])->name('NewPassword')->middleware('auth');
 Route::post('/change/password', [EditUserController::class, 'changePassword'])->name('changePassword');
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 

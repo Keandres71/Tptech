@@ -82,23 +82,7 @@ class User extends Authenticatable
         );
 
     } */
-/* 
-    protected function password(): Attribute
-    {
-        return new Attribute(
-            set: function($value){
-                return encrypt($value);
-            }
-        );
-    }
 
-    protected function password_confirmation(): Attribute
-    {
-        return new Attribute(
-            set: function($value){
-                return encrypt($value);
-            }
-        );
-    } */
+
 
 }

@@ -55,7 +55,7 @@
                                 </li>
 
                                 <li class="sign-up">
-                                    <a href="{{route('NewPassword')}}">
+                                    <a href="{{route('NewProfile')}}">
                                         Editar Perfil
                                     </a>
 
@@ -70,6 +70,7 @@
                                         </form>
                                     </div>
                                 </li>
+
 
                         @endguest
                 </ul>

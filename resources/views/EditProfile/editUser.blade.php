@@ -4,8 +4,11 @@
 
 <div class="form-container">
     <h2 class="saludo">Actualizar Datos</h2>
-    <form action="{{route('changePassword')}}" method="POST">
+    <a href="{{ route('NewPassword') }}"> Cambiar contraseña</a>
+    <form action="{{route('changeProfile', $usuario->id)}}" method="POST">
         @csrf
+        @method('PUT')
+
         <div class="input-field">
             <input class="input-input" type="text" name="name" placeholder=" " autocomplete="off" id="name" value="{{ Auth::user()->name }}">
             <label class="input-label" for="name">Nombre</la>
@@ -15,7 +18,7 @@
             * {{ $message }}
         </p>                   
         @enderror
-{{-- 
+
         <div class="input-field">
             <input class="input-input" type="text" name="apellido" placeholder=" " autocomplete="off" id="apellido" value="{{ Auth::user()->apellido }}">
             <label class="input-label" for="apellido">Apellido</la>
@@ -75,52 +78,24 @@
         <div class="input-field">
             <input class="input-input" type="text" name="dire" placeholder=" " autocomplete="off" id="dire" value="{{ Auth::user()->dire }}">
             <label class="input-label" for="dire">Direccion Explicita</la>
-        </div> --}}
-
-
-        <div class="input-field">
-            <input class="input-input" type="password" name="password_actual" placeholder=" " id="password_actual">
-            <label class="input-label" for="password_actual">Contraseña actual</label>
         </div>
 
-        @error('password_actual')
-        <p>
-            * {{ $message }}
-        </p>                   
-        @enderror
-
-        <div class="input-field">
-            <input class="input-input" type="password" name="password" placeholder=" " id="password">
-            <label class="input-label" for="new_password">Contraseña nueva</label>
+       <div class="input-field">
+            <input class="input-input" type="password" name="password" placeholder=" " id="password" {{-- value="{{ Auth::user()->password }}" --}}>
+            <label class="input-label" for="password">Contraseña actual</label>
         </div>
 
-        
         @error('password')
-        <p>
-            * {{ $message }}
-        </p>                   
+            <p>
+                * {{ $message }}
+            </p> 
         @enderror
-
-        <div class="input-field">
-            <input class="input-input" type="password" name="confirm_password" placeholder=" " id="confirm_password">
-            <label class="input-label" for="confirm_password">confirmar contraseña</label>
-        </div>
-
-        @error('password_confirmation')
-        <p>
-            * {{ $message }}
-        </p>                   
-        @enderror
-        
         <button type="submit"  class="login-btn">
             Guardar Cambios
         </button>
+
     </form>
 
-{{--                 <div class="login-options">
-        <a href="loginrecuperar.html">Recuperar contraseña</a>
-        <a href="login.html">Iniciar sesión</a>
-    </div> --}}
 </div>
     
 @endsection

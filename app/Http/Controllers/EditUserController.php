@@ -7,11 +7,24 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class EditUserController extends Controller
 {
+    public Function NewProfile(User $usuario){
+        return view('EditProfile.editUser', compact('usuario'));
+    }
+
+
+    public function changeProfile(){
+
+
+
+    }
+
+
     public function NewPassword(){
-        return view('EditProfile.editUser');
+        return view('EditProfile.editPassword');
     }
 
     public function changePassword(Request $request){
@@ -49,13 +62,13 @@ class EditUserController extends Controller
         }else {
             return back()->withErrors(['password_actual'=>'la clave no coincide']);
         }
-    }else {
+    }/* else {
         $name = $request->name;
         $updateName = DB::table('users')
                     ->where("id", $user->id)
                     ->update(['name', $name]);
         return redirect()->back()->with('name', 'el nombre fue cambiado correctamente');
-     }
+     } */
 }
 }
 
