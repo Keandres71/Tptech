@@ -4,6 +4,7 @@
 
 <div class="form-container">
     <h2 class="saludo">Actualizar Contraseña</h2>
+    @include('layouts.mensaje-error')
     <form action="{{ route('changePassword') }}" method="post">
         @csrf
         <div class="input-field">

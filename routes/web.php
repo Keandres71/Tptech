@@ -3,8 +3,7 @@
 use App\Http\Controllers\EditUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
-use App\Http\Controllers\ProovedorController;
+use Illuminate\Support\Facades\Auth;
 
 
 /*
