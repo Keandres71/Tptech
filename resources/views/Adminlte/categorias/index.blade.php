@@ -18,7 +18,7 @@
                             </span>
 
                             <div class="float-right">
-                                <a href="{{ route('AdminLte/categorias.create') }}" class="btn btn-primary btm-sm float-right">Nueva categoria</a>
+                                <a href="{{ route('AdminLte.categorias.create') }}" class="btn btn-primary btm-sm float-right">Nueva categoria</a>
                             </div>
 
                         </div>
@@ -38,22 +38,28 @@
                             </thead>
                             @include('layouts.mensaje-error')
                             <tbody class="reportes-table-body">
-                                @foreach ($categorias as $categoria)
+                                @forelse ($categorias as $categoria)
 
                                     <tr>
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $categoria->tipo }}</td>
                                         <td>
-                                            <form action="{{route('AdminLte/categorias.destroy',$categoria)}}" method="post" class="d-inline form-delete">
-                                                <a class="btn btn-sm btn-success" href="{{ route('AdminLte/categorias.edit',$categoria) }}"><i class="fa fa-fw fa-edit"></i>Editar</a>
-                                                @method('DELETE')
-                                                @csrf
-                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Eliminar</button>
-                                            </form>
+                                            <a class="btn btn-sm btn-success" href="{{ route('AdminLte.categorias.edit',$categoria) }}"><i class="fa fa-fw fa-edit"></i>Editar</a>
+                                            @can('usuarios.destroy')
+                                                <form action="{{route('AdminLte.categorias.destroy',$categoria)}}" method="post" class="d-inline form-delete">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Eliminar</button>
+                                                </form>
+                                            @endcan
                                         </td>
                                     </tr>
 
-                                @endforeach
+                                @empty
+                                    <tr>
+                                        <p style="text-align: center"> No hay categorias disponibles</p>
+                                    </tr>
+                                @endforelse
                             </tbody>
 
                         </table>

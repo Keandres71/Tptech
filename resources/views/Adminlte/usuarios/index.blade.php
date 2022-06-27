@@ -16,10 +16,12 @@
 <div class="reportes-data">
     <table class="reportes-table">
         <thead class="reportes-table-head">
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Correo</th>
-            <th>Acciones</th>
+            <tr style="text-align: center">
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Correo</th>
+                <th>Acciones</th>
+            </tr>
         </thead>
 
         <tbody class="reportes-table-body">
@@ -32,12 +34,15 @@
             <td>
 
                 <div class="botones">
-                    <a href="{{route('usuarios.edit',$usuario)}}" class="boton editar">Editar</a>
-                    <form action="{{route('usuarios.destroy', $usuario)}}" method="POST" class="d-inline">
-                        @method('DELETE')
-                        @csrf
-                        <button type="submit" class="boton eliminar">Eliminar</button>
-                    </form>
+                    <a class="btn btn-sm btn-warning" href="{{ route('usuarios.edit',$usuario) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                    @can('usuarios.destroy')
+                        <form action="{{route('usuarios.destroy', $usuario)}}" method="POST" class="d-inline form-delete">
+                            <a class="btn btn-sm btn-primary" href="{{ route('usuarios.asignar',$usuario) }}"><i class="fa fa-id-card"></i> Asignar rol</a>
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="boton eliminar"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                        </form>
+                    @endcan
                 </div>
             </td>
 
@@ -46,7 +51,7 @@
         @empty
 
             <tr>
-                <p>No hay usuarios</p>
+                <p style="text-align: center"> No hay usuarios disponibles</p>
             </tr>
 
         @endforelse
@@ -58,4 +63,8 @@
     @endif
 </div>
 
+@endsection
+
+@section('js')
+    <script src="{{ asset('js/plugins/sweetalert.js') }}"></script>
 @endsection

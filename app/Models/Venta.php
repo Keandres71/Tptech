@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Venta extends Model
 {
-    
+    public $timestamps = false;
     static $rules = [
 		'codigo' => 'required',
 		'iduser' => 'required',

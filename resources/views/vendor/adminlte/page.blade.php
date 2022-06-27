@@ -5,6 +5,8 @@
 @section('adminlte_css')
     @stack('css')
     @yield('css')
+    <link rel="stylesheet" href="{{ asset('css/app2.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
 @stop
 
 @section('classes_body', $layoutHelper->makeBodyClasses())
@@ -47,7 +49,14 @@
 @stop
 
 @section('adminlte_js')
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('js/plugins/sweetalert2@11.js') }}"></script>
+    <script src="{{ asset('js/plugins/select2.min.js') }}"></script>
+    <script language="JavaScript">
+        $(document).ready(() => {
+            $('.select2').select2();
+        });
+        // history.forward();
+    </script>
     @stack('js')
     @yield('js')
 @stop

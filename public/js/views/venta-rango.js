@@ -4,7 +4,7 @@
 $('#daterange-btn').daterangepicker(
     {
       ranges   : {
-        'Hoy'       : [moment(), moment()],
+        'Hoy'    : [moment(), moment()],
         'Ayer'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
         'Últimos 7 días' : [moment().subtract(6, 'days'), moment()],
         'Últimos 30 días': [moment().subtract(29, 'days'), moment()],
@@ -29,3 +29,9 @@ $('#daterange-btn').daterangepicker(
     }
 
 );
+
+$(document).ready(function(){
+    var start = moment();
+    var end = moment();
+    $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+});

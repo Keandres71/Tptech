@@ -13,7 +13,10 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Create Proveedor</span>
+                        <span class="card-title">Crear proveedor</span>
+                        <div class="float-right">
+                            <a href="{{ route('AdminLte.proveedors.index') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">Atrás</a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('AdminLte.proveedors.store') }}"  role="form" enctype="multipart/form-data">

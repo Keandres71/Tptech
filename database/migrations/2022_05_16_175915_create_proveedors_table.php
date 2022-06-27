@@ -17,8 +17,8 @@ return new class extends Migration
             $table->engine = 'InnoDB';
             $table->id('id');
             $table->string('rsoc');
-            $table->string('dire');
-            $table->string('tel');
+            $table->string('dire')->nullable();
+            $table->string('tel')->nullable();
              $table->string('email');
 
         });

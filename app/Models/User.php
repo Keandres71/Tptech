@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -40,7 +41,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-    
+
     /**
      * The attributes that should be cast.
      *
@@ -55,34 +56,12 @@ class User extends Authenticatable
         return 'https://picsum.photos/300/300';
     }
 
-/*     protected function name(): Attribute
-    { 
-        return new Attribute(
-            set: function($value){
-                return strtoupper($value);
-            }, 
-
-            get:function($value){
-                return ucwords($value);
-            }
-        );
-
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function ventas()
+    {
+        return $this->hasMany('App\Models\Venta', 'iduser', 'id');
     }
-
-    protected function apellido(): Attribute
-    { 
-        return new Attribute(
-            set: function($value){
-                return strtoupper($value);
-            }, 
-
-            get:function($value){
-                return ucwords($value);
-            }
-        );
-
-    } */
-
-
 
 }

@@ -25,7 +25,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Producto extends Model
 {
-    
+    public $timestamps = false;
     static $rules = [
 		'idcag' => 'required',
 		'idpro' => 'required',

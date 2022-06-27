@@ -13,14 +13,17 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Proveedor</span>
+                        <span class="card-title">Actualizar proveedor</span>
+                        <div class="float-right">
+                            <a href="{{ route('AdminLte.proveedors.index') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">Atrás</a>
+                        </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('proveedors.update', $proveedor->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('AdminLte.proveedors.update', $proveedor->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('proveedor.form')
+                            @include('AdminLte.proveedor.form')
 
                         </form>
                     </div>
