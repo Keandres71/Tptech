@@ -20,11 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Proveedor extends Model
 {
-
-
-
-
-
+    public $timestamps = false;
     static $rules = [
 		'rsoc' => 'required',
 		'email' => 'required',

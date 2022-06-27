@@ -1,9 +1,5 @@
 @extends('Adminlte.layouts')
 @section('content')
-@section('css')
-    <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}" >
-@stop
 
 <div class="container py-5 text-center">
     @if (isset($usuario))
@@ -14,7 +10,7 @@
 
     @if (isset($usuario))
         <form action="{{ route('usuarios.update', $usuario)}}" method="post">
-            @method('PUT')  
+            @method('PUT')
     @else
         <form action="{{route('usuarios.store')}}" method="post">
     @endif
@@ -85,14 +81,14 @@
                 </div>
             </div>
 
-            
+
             <div class="botones">
             @if (isset($usuario))
             <button type="submit" class="boton agregar">Editar usuario</button>
             <button class="boton cancelar"><a href="{{route('usuarios.index')}}">Cancelar</a></button>
             @else
             <button type="submit" class="boton agregar">Guardar usuario</button>
-            <button class="boton cancelar"><a href="{{route('usuarios.index')}}">Cancelar</a></button>   
+            <button class="boton cancelar"><a href="{{route('usuarios.index')}}">Cancelar</a></button>
             @endif
 
             </div>

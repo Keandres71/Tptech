@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Spatie\Permission\Models\Role;
 
 class UsuarioController extends Controller
 {
+
+    // function __construct()
+    // {
+    //     $this->middleware(['can:usuarios.asignar.rol']);
+    // }
+
     public function index(){
 
         $usuario = User::paginate(10);
@@ -34,28 +41,27 @@ class UsuarioController extends Controller
 
         Session::flash('mensaje', 'Usuario creado con exito');
         return redirect()->route('usuarios.index');
-        
+
     }
 
     public function show(User $usuario){
-        
         return view('usuarios.show', compact('usuario'));
     }
-    
+
     public function edit(User $usuario){
         return view('Adminlte.usuarios.form')
         ->with('usuario', $usuario);
     }
 
     public function update(Request $request , User $usuario){
-        
+
         $request->validate([
             'name'=>'required',
             'apellido'=>'required',
             'tipo_doc'=>'required',
             'num_doc'=>'required',
             'email'=>'required',
-            
+
         ]);
 
         $usuario->name = $request['name'];
@@ -68,11 +74,11 @@ class UsuarioController extends Controller
         $usuario->ciudad = $request['ciudad'];
         $usuario->dire = $request['dire'];
         $usuario->password = $request['password'];
-    
+
         $usuario->save();
 
         Session::flash('mensaje', 'Editado con exito');
-        
+
         return redirect()->route('usuarios.index');
     }
 
@@ -80,6 +86,19 @@ class UsuarioController extends Controller
         $usuario->delete();
         Session::flash('mensaje', 'usuario eliminado');
         return redirect()->route('usuarios.index');
+    }
+
+    public function mostrarFormRol(User $user){
+        $roles = Role::all();
+        return view('Adminlte.usuarios.editar-rol', compact('user','roles'));
+    }
+
+    public function asignarRol(Request $request, User $user){
+        //Primero quitamos todos los roles
+        $user->roles()->detach();
+        //Luego asignamos los respectivos roles seleccionados
+        $user->assignRole($request->roles);
+        return redirect()->route('usuarios.asignar',$user)->with('success', 'Se asignaron los roles correctamente.');
     }
 
 }

@@ -14,7 +14,7 @@
 
                              <div class="float-right">
                                 <a href="{{ route('AdminLte.proveedors.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Nuevo proveedor') }}
                                 </a>
                               </div>
                         </div>
@@ -48,18 +48,19 @@
 											<td>{{ $proveedor->email }}</td>
 
                                             <td>
-                                                <form action="{{ route('AdminLte.proveedors.destroy',$proveedor->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('AdminLte.proveedors.show',$proveedor->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('AdminLte.proveedors.edit',$proveedor->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
-                                                </form>
-                                            </td>
+                                                <a class="btn btn-sm btn-success" href="{{ route('AdminLte.proveedors.edit',$proveedor->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                @can('usuarios.destroy')
+                                                    <form action="{{ route('AdminLte.proveedors.destroy',$proveedor->id) }}" method="POST" class="form-delete">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    </form>
+                                                @endcan
+                                                </td>
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td style="text-align: center"> No hay proveedores disponibles</td>
+                                            <p style="text-align: center"> No hay proveedores disponibles</p>
                                         </tr>
                                     @endforelse
                                 </tbody>
@@ -71,4 +72,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script src="{{ asset('js/plugins/sweetalert.js') }}"></script>
 @endsection

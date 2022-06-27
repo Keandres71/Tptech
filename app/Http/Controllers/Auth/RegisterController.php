@@ -52,9 +52,9 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],      
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
             'apellido'=> ['required', 'string', 'max:255'],
-            'fecha_nac'=> ['required', 'date', 'max:255'],         
+            'fecha_nac'=> ['required', 'date', 'max:255'],
         ]);
     }
 
@@ -70,8 +70,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'apellido' => $data['apellido'],            
+            'apellido' => $data['apellido'],
             'fecha_nac'=> $data['fecha_nac'],
-        ]);
+        ])->assignRole('usuario.cliente');
     }
 }

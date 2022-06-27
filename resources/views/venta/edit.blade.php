@@ -13,7 +13,10 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Venta</span>
+                        <span class="card-title">Actualizar venta</span>
+                        <div class="float-right">
+                            <a href="{{ route('AdminLte.ventas.index') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">Atrás</a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('ventas.update', $venta->id) }}"  role="form" enctype="multipart/form-data">

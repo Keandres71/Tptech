@@ -26,10 +26,9 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id' => 'required|max:15',
             'tipo' => 'required'
         ]);
-        $categoria = Categoria::create($request->only('id', 'tipo'));
+        $categoria = Categoria::create($request->only('tipo'));
 
         return redirect()->route('AdminLte/categorias.index')
             ->with('success', 'La categoria se creo correctamente.');
@@ -45,10 +44,8 @@ class CategoriaController extends Controller
     public function update(Request $request, Categoria $categoria)
     {
         $request->validate([
-            'id' => 'required|max:15',
             'tipo' => 'required'
         ]);
-        $categoria->id = $request['id'];
         $categoria->tipo = $request['tipo'];
         $categoria->save();
 

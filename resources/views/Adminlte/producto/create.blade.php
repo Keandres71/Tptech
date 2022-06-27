@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('template_title')
-    Create Producto
-@endsection
-
 @section('content')
     <section class="content container-fluid">
         <div class="row">
@@ -13,13 +9,16 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Create Producto</span>
+                        <span class="card-title">Nuevo producto</span>
+                        <div class="float-right">
+                            <a href="{{ route('AdminLte.productos.index') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">Atrás</a>
+                        </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('productos.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('AdminLte.productos.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('producto.form')
+                            @include('AdminLte.producto.form')
 
                         </form>
                     </div>

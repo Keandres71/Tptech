@@ -23,7 +23,6 @@ return new class extends Migration
             $table->double('val_unit');
             $table->integer('stock');
             $table->char('active')->default(0);
-            $table->timestamps();
             $table->foreign('idcag')->references('id')->on('categorias')->onDelete('cascade');
             $table->foreign('idpro')->references('id')->on('proveedors')->onDelete('cascade');
         });

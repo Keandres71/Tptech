@@ -13,20 +13,21 @@
                             <span id="card_title">
                                 {{ __('Administrar ventas') }}
                             </span>
+                            @can('reporte.venta.rango')
+                                <form action="{{ route('reporte.venta.rango') }}" method="POST">
+                                    @csrf
+                                    <input id="fechaInicial" name="fechaInicial" type="hidden">
+                                    <input id="fechaFinal" name="fechaFinal" type="hidden">
+                                    <button type="button" class="btn btn-default pull-right" id="daterange-btn">
 
-                            <form action="{{ route('reporte.venta.rango') }}" method="POST">
-                                @csrf
-                                <input id="fechaInicial" name="fechaInicial" type="hidden">
-                                <input id="fechaFinal" name="fechaFinal" type="hidden">
-                                <button type="button" class="btn btn-default pull-right" id="daterange-btn">
+                                        <span><i class="fa fa-calendar"></i> Rango de fecha</span>
 
-                                    <span><i class="fa fa-calendar"></i> Rango de fecha</span>
+                                        <i class="fa fa-caret-down"></i>
 
-                                    <i class="fa fa-caret-down"></i>
-
-                                </button>
-                                <button type="submit" class="btn btn-primary btn-sm">Traer reporte <i class="fa fa-file"></i></button>
-                            </form>
+                                    </button>
+                                    <button type="submit" class="btn btn-primary btn-sm">Traer reporte <i class="fa fa-file"></i></button>
+                                </form>
+                            @endcan                            
                         </div>
                     </div>
 
@@ -49,7 +50,7 @@
                                 </thead>
                                 @include('layouts.mensaje-error')
                                 <tbody class="reportes-table-body">
-                                    @foreach ($ventas as $venta)
+                                    @forelse ($ventas as $venta)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
@@ -60,15 +61,21 @@
 											<td>{{ $venta->fecha_venta }}</td>
 
                                             <td>
-                                                <form action="{{ route('AdminLte.ventas.destroy',$venta->id) }}" method="POST" class="form-delete">
-                                                    <a class="btn btn-sm btn-success" href="{{ route('AdminLte.ventas.edit',$venta->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
-                                                </form>
+                                                <a class="btn btn-sm btn-success" href="{{ route('AdminLte.ventas.edit',$venta->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                @can('usuarios.destroy')
+                                                    <form action="{{ route('AdminLte.ventas.destroy',$venta->id) }}" method="POST" class="form-delete">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    </form>
+                                                @endcan
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @empty
+                                        <tr>
+                                            <p style="text-align: center"> No hay ventas disponibles</p>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

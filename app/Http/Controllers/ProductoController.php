@@ -22,7 +22,7 @@ class ProductoController extends Controller
     {
         $productos = Producto::paginate(5);
 
-        return view('Adminlte.producto.index', compact('productos'))
+        return view('AdminLte.producto.index', compact('productos'))
             ->with('i', (request()->input('page', 1) - 1) * $productos->perPage());
     }
 
@@ -36,7 +36,7 @@ class ProductoController extends Controller
         $producto = new Producto();
         $categorias = Categoria::pluck('tipo','id');
         $proveedores = Proveedor::pluck('rsoc','id');
-        return view('Adminlte.producto.create', compact('producto','proveedores','categorias'));
+        return view('AdminLte.producto.create', compact('producto','proveedores','categorias'));
     }
 
     /**
@@ -65,7 +65,7 @@ class ProductoController extends Controller
     {
         $producto = Producto::find($id);
 
-        return view('Adminlte.producto.show', compact('producto'));
+        return view('AdminLte.producto.show', compact('producto'));
     }
 
     /**
@@ -80,7 +80,7 @@ class ProductoController extends Controller
         $categorias = Categoria::pluck('tipo','id');
         $proveedores = Proveedor::pluck('rsoc','id');
 
-        return view('Adminlte.producto.edit', compact('producto','proveedores','categorias'));
+        return view('AdminLte.producto.edit', compact('producto','proveedores','categorias'));
     }
 
     /**
@@ -109,17 +109,22 @@ class ProductoController extends Controller
     {
         $producto = Producto::find($id)->delete();
 
-        return redirect()->route('productos.index')
+        return redirect()->route('AdminLte.productos.index')
             ->with('success', 'Producto deleted successfully');
     }
 
     public function activarProducto(Request $request){
+        $mensaje = '';
         $producto = Producto::find($request['i']);
-        dd($request);
-        $active = $request[''];
-        $producto = [
-
-        ];
+        $producto->active = $request['active'];
+        $producto->update();
+        if($producto->active == 1){
+            $mensaje = 'Producto activado correctamente.';
+        }else{
+            $mensaje = 'Producto desactivado correctamente.';
+        }
+        return redirect()->route('AdminLte.productos.index')
+            ->with('success', $mensaje);
     }
 
 }
