@@ -61,7 +61,6 @@
 											<td>{{ $venta->fecha_venta }}</td>
 
                                             <td>
-                                                <a class="btn btn-sm btn-success" href="{{ route('AdminLte.ventas.edit',$venta->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                 @can('usuarios.destroy')
                                                     <form action="{{ route('AdminLte.ventas.destroy',$venta->id) }}" method="POST" class="form-delete">
                                                         @csrf

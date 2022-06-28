@@ -1,6 +1,7 @@
 @extends('layouts.plantilla')
 @section('content')
 
+@include('layouts.mensaje-error')
 
 <section class="home-banner">
     <div class="wrapper-proyect">
@@ -35,120 +36,26 @@
 
     @forelse ($productos as $producto)
 
-        <a href="" class="card__tienda">
-            <div class="card__img">
-                <img src="{{ asset('img/iphone_morado.png') }}" alt="">z
-            </div>
-            <div class="card__description">
-                <p>{{ $producto->descripcion }}</p>
-            </div>
-            <div class="card__precio">
-                ${{ $producto->val_unit }}
-            </div>
-        </a>
+        <div class="card__tienda">
+            <form action="{{ route('add.carrito') }}"  method="POST">
+                @csrf
+                <input type="hidden" name="i" value="{{ $producto->id }}">
+                <div class="card__img">
+                    <img src="{{ asset('img/iphone_morado.png') }}" alt="">z
+                </div>
+                <div class="card__description">
+                    <p>{{ $producto->descripcion }}</p>
+                </div>
+                <div class="card__precio">
+                    ${{ $producto->val_unit }}
+                </div>
+                <button class="btn btn-outline-danger" type="submit">Agregar</button>
+            </form>
+        </div>
 
     @empty
         <p style="text-align: center">No hay productos en stock</p>
     @endforelse
-    {{-- <a href="" class="card__tienda">
-        <div class="card__img">
-            <img src="https://www.alkosto.com/medias/6934177754043-001-1400Wx1400H?context=bWFzdGVyfGltYWdlc3wxNzk5MDh8aW1hZ2UvanBlZ3xpbWFnZXMvaDUyL2hkYy8xMjQxNjAyMDYxMTEwMi5qcGd8NThhNjYzNjkyZGM5Y2I4ZGMzNTAwZWFmYjFlZDQ2NDU1ZGJkMjRmZmRlOWRkNzMzODVmNzJhZWVlMWVkY2FiNQ" alt="">
-        </div>
-        <div class="card__description">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, sequi.</p>
-        </div>
-        <div class="card__precio">
-            $5'000.000
-        </div>
-    </a>
-    <a href="" class="card__tienda">
-        <div class="card__img">
-            <img src="https://www.alkosto.com/medias/6934177754043-001-1400Wx1400H?context=bWFzdGVyfGltYWdlc3wxNzk5MDh8aW1hZ2UvanBlZ3xpbWFnZXMvaDUyL2hkYy8xMjQxNjAyMDYxMTEwMi5qcGd8NThhNjYzNjkyZGM5Y2I4ZGMzNTAwZWFmYjFlZDQ2NDU1ZGJkMjRmZmRlOWRkNzMzODVmNzJhZWVlMWVkY2FiNQ" alt="">
-        </div>
-        <div class="card__description">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, sequi.</p>
-        </div>
-        <div class="card__precio">
-            $5'000.000
-        </div>
-    </a>
-    <a href="" class="card__tienda">
-        <div class="card__img">
-            <img src="https://www.alkosto.com/medias/6934177754043-001-1400Wx1400H?context=bWFzdGVyfGltYWdlc3wxNzk5MDh8aW1hZ2UvanBlZ3xpbWFnZXMvaDUyL2hkYy8xMjQxNjAyMDYxMTEwMi5qcGd8NThhNjYzNjkyZGM5Y2I4ZGMzNTAwZWFmYjFlZDQ2NDU1ZGJkMjRmZmRlOWRkNzMzODVmNzJhZWVlMWVkY2FiNQ" alt="">
-        </div>
-        <div class="card__description">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, sequi.</p>
-        </div>
-        <div class="card__precio">
-            $5'000.000
-        </div>
-    </a>
-    <a href="" class="card__tienda">
-        <div class="card__img">
-            <img src="https://www.alkosto.com/medias/6934177754043-001-1400Wx1400H?context=bWFzdGVyfGltYWdlc3wxNzk5MDh8aW1hZ2UvanBlZ3xpbWFnZXMvaDUyL2hkYy8xMjQxNjAyMDYxMTEwMi5qcGd8NThhNjYzNjkyZGM5Y2I4ZGMzNTAwZWFmYjFlZDQ2NDU1ZGJkMjRmZmRlOWRkNzMzODVmNzJhZWVlMWVkY2FiNQ" alt="">
-        </div>
-        <div class="card__description">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, sequi.</p>
-        </div>
-        <div class="card__precio">
-            $5'000.000
-        </div>
-    </a>
-    <a href="" class="card__tienda">
-        <div class="card__img">
-            <img src="https://www.alkosto.com/medias/6934177754043-001-1400Wx1400H?context=bWFzdGVyfGltYWdlc3wxNzk5MDh8aW1hZ2UvanBlZ3xpbWFnZXMvaDUyL2hkYy8xMjQxNjAyMDYxMTEwMi5qcGd8NThhNjYzNjkyZGM5Y2I4ZGMzNTAwZWFmYjFlZDQ2NDU1ZGJkMjRmZmRlOWRkNzMzODVmNzJhZWVlMWVkY2FiNQ" alt="">
-        </div>
-        <div class="card__description">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, sequi.</p>
-        </div>
-        <div class="card__precio">
-            $5'000.000
-        </div>
-    </a>
-    <a href="" class="card__tienda">
-        <div class="card__img">
-            <img src="https://www.alkosto.com/medias/6934177754043-001-1400Wx1400H?context=bWFzdGVyfGltYWdlc3wxNzk5MDh8aW1hZ2UvanBlZ3xpbWFnZXMvaDUyL2hkYy8xMjQxNjAyMDYxMTEwMi5qcGd8NThhNjYzNjkyZGM5Y2I4ZGMzNTAwZWFmYjFlZDQ2NDU1ZGJkMjRmZmRlOWRkNzMzODVmNzJhZWVlMWVkY2FiNQ" alt="">
-        </div>
-        <div class="card__description">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, sequi.</p>
-        </div>
-        <div class="card__precio">
-            $5'000.000
-        </div>
-    </a>
-    <a href="" class="card__tienda">
-        <div class="card__img">
-            <img src="https://www.alkosto.com/medias/6934177754043-001-1400Wx1400H?context=bWFzdGVyfGltYWdlc3wxNzk5MDh8aW1hZ2UvanBlZ3xpbWFnZXMvaDUyL2hkYy8xMjQxNjAyMDYxMTEwMi5qcGd8NThhNjYzNjkyZGM5Y2I4ZGMzNTAwZWFmYjFlZDQ2NDU1ZGJkMjRmZmRlOWRkNzMzODVmNzJhZWVlMWVkY2FiNQ" alt="">
-        </div>
-        <div class="card__description">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, sequi.</p>
-        </div>
-        <div class="card__precio">
-            $5'000.000
-        </div>
-    </a>
-    <a href="" class="card__tienda">
-        <div class="card__img">
-            <img src="https://www.alkosto.com/medias/6934177754043-001-1400Wx1400H?context=bWFzdGVyfGltYWdlc3wxNzk5MDh8aW1hZ2UvanBlZ3xpbWFnZXMvaDUyL2hkYy8xMjQxNjAyMDYxMTEwMi5qcGd8NThhNjYzNjkyZGM5Y2I4ZGMzNTAwZWFmYjFlZDQ2NDU1ZGJkMjRmZmRlOWRkNzMzODVmNzJhZWVlMWVkY2FiNQ" alt="">
-        </div>
-        <div class="card__description">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, sequi.</p>
-        </div>
-        <div class="card__precio">
-            $5'000.000
-        </div>
-    </a>
-    <a href="" class="card__tienda">
-        <div class="card__img">
-            <img src="https://www.alkosto.com/medias/6934177754043-001-1400Wx1400H?context=bWFzdGVyfGltYWdlc3wxNzk5MDh8aW1hZ2UvanBlZ3xpbWFnZXMvaDUyL2hkYy8xMjQxNjAyMDYxMTEwMi5qcGd8NThhNjYzNjkyZGM5Y2I4ZGMzNTAwZWFmYjFlZDQ2NDU1ZGJkMjRmZmRlOWRkNzMzODVmNzJhZWVlMWVkY2FiNQ" alt="">
-        </div>
-        <div class="card__description">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, sequi.</p>
-        </div>
-        <div class="card__precio">
-            $5'000.000
-        </div>
-    </a>--}}
 </section>
 
 <div class="pages">

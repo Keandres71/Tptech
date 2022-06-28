@@ -37,7 +37,9 @@ Route::group(['middleware' => ['permission:admin.home']], function(){
     Route::resource('/proveedores', ProveedorController::class)->except('show')->names('AdminLte.proveedors');
 
     //RUTAS ADMIN VENTAS
-    Route::resource('/ventas', VentaController::class)->except('show')->names('AdminLte.ventas');
+    Route::resource('/ventas', VentaController::class)
+        ->only('index','store','destroy')
+        ->names('AdminLte.ventas');
 
     //RUTAS PARA GENERACION DE PDFs
     Route::post('ventas', [VentaController::class,'generarPDFRango'])->name('reporte.venta.rango');

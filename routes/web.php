@@ -3,6 +3,8 @@
 use App\Http\Controllers\EditUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\VentaController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -30,4 +32,14 @@ Route::put('/changeProfile', [EditUserController::class, 'changeProfile'])->name
 Route::get('/UpdatePassword' , [EditUserController::class, 'NewPassword'])->name('NewPassword')->middleware('auth');
 Route::post('/change/password', [EditUserController::class, 'changePassword'])->name('changePassword');
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
+//RUTAS PARA EL CARRRITO DE COMPRAS
+Route::get('carrito-ver', [CartController::class, 'index'])->name('ver.carrito');
+Route::post('carrito-agregar', [CartController::class, 'addCart'])->name('add.carrito');
+Route::get('carrito-limpiar', [CartController::class, 'clearCart'])->name('clear.carrito');
+Route::post('carrito-remover', [CartController::class, 'removeItemCart'])->name('removeitem.carrito');
+// Route::post('traer-productos', [CartController::class, 'traeProductosCarrito']);
+
+Route::post('crear-venta', [VentaController::class, 'store'])->name('crear.venta');
+Route::get('factura-venta/{venta}', [VentaController::class, 'generarPDFFactura'])->name('factura.venta');
+
+//Route::post('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

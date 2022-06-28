@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Venta;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
+use Cart;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class VentaController
@@ -44,55 +46,24 @@ class VentaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Venta::$rules);
+        // para el codigo
+        $codigo = 10001;
+        $ventas = Venta::count();
+        $codigo += $ventas;
+        $data = [
+            'codigo' => $codigo,
+            'iduser' => auth()->user()->id,
+            'productos' => Cart::getContent(),
+            'iva' => 19,
+            'total' => Cart::getTotal(),
+            'neto' => Cart::getSubTotal(),
+            'metodo_pago' => 'Efectivo',
+            'fecha_venta' => '2022-06-27',
+        ];
 
-        $venta = Venta::create($request->all());
+        $venta = Venta::create($data);
 
-        return redirect()->route('ventas.index')
-            ->with('success', 'Venta created successfully.');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $venta = Venta::find($id);
-
-        return view('venta.show', compact('venta'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $venta = Venta::find($id);
-
-        return view('venta.edit', compact('venta'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  Venta $venta
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Venta $venta)
-    {
-        request()->validate(Venta::$rules);
-
-        $venta->update($request->all());
-
-        return redirect()->route('ventas.index')
-            ->with('success', 'Venta updated successfully');
+        return redirect()->route('factura.venta', $venta);
     }
 
     /**
@@ -105,7 +76,7 @@ class VentaController extends Controller
         $venta = Venta::find($id)->delete();
 
         return redirect()->route('ventas.index')
-            ->with('success', 'Venta deleted successfully');
+            ->with('success', 'Venta eliminada correctamente.');
     }
 
     public function generarPDFRango(Request $request){
@@ -118,8 +89,13 @@ class VentaController extends Controller
         //Generar PDF
         $pdf = PDF::loadview('venta.show', compact('ventas','i'));
         return $pdf->stream('reporte.pdf');
+    }
 
-        dd($ventas);
+    public function generarPDFFactura(Venta $venta){
+        $i = 0;
+        //Generar PDF
+        $pdf = PDF::loadview('venta.factura', compact('venta','i'));
+        return $pdf->stream('reporte.pdf');
     }
 
 }

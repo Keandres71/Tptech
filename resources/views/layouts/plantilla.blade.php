@@ -25,7 +25,7 @@
                 </div>
 
                 <ul class="header__icons grid header__menu_horizontal">
-                    <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><a href="{{ route('ver.carrito') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
                     <li class="relative">
                         <a href=""><i class="fa-solid fa-user"></i></a>
                         <ul class="header__menu_vertical_user">
@@ -41,9 +41,6 @@
                                 <li class="sign-up">
                                     <a href="{{route('register')}}">Register</a>
                                 </li>
-                                {{-- <li class="sign-up">
-                                    <a href="{{route('register')}}">hola</a>
-                                </li> --}}
                             @endif
 
                             @else
@@ -84,10 +81,6 @@
         @yield('content')
 
     </div>
-
-
-
-
     <footer>
         <div class="wrapper-proyect grid footer">
             <ul class="footer__politicas">
@@ -106,6 +99,7 @@
             </ul>
         </div>
     </footer>
+    @yield('js')
     <script src="https://kit.fontawesome.com/53123e5901.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -57,12 +57,12 @@ class RolSeeder extends Seeder
         Permission::create(['name' => 'AdminLte.proveedors.update'])->syncRoles([$rol1,$rol2]);
         Permission::create(['name' => 'AdminLte.proveedors.destroy'])->syncRoles([$rol1]);
         //Permisos de ventas
-        Permission::create(['name' => 'AdminLte.productos.index'])->syncRoles([$rol1,$rol2]);
-        Permission::create(['name' => 'AdminLte.productos.create'])->syncRoles([$rol1,$rol2]);
-        Permission::create(['name' => 'AdminLte.productos.store'])->syncRoles([$rol1,$rol2]);
-        Permission::create(['name' => 'AdminLte.productos.edit'])->syncRoles([$rol1,$rol2]);
-        Permission::create(['name' => 'AdminLte.productos.update'])->syncRoles([$rol1,$rol2]);
-        Permission::create(['name' => 'AdminLte.productos.destroy'])->syncRoles([$rol1]);
+        Permission::create(['name' => 'AdminLte.ventas.index'])->syncRoles([$rol1,$rol2]);
+        Permission::create(['name' => 'AdminLte.ventas.create'])->syncRoles([$rol1,$rol2]);
+        Permission::create(['name' => 'AdminLte.ventas.store'])->syncRoles([$rol1,$rol2]);
+        Permission::create(['name' => 'AdminLte.ventas.edit'])->syncRoles([$rol1,$rol2]);
+        Permission::create(['name' => 'AdminLte.ventas.update'])->syncRoles([$rol1,$rol2]);
+        Permission::create(['name' => 'AdminLte.ventas.destroy'])->syncRoles([$rol1]);
 
         Permission::create(['name' => 'reporte.venta.rango'])->syncRoles([$rol1]);
     }

@@ -186,6 +186,7 @@ return [
         * Package Service Providers...
         */
         \Barryvdh\DomPDF\ServiceProvider::class,
+        Darryldecode\Cart\CartServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -212,6 +213,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
     ])->toArray(),
 
 ];
