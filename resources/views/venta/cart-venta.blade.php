@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.plantilla')
 
 @section('content')
     <div class="container">
@@ -39,7 +39,7 @@
                     </table>
                     <form action="{{ route('crear.venta') }}" method="post" id="form-crearventa">
                         @csrf
-                        <a href="{{ route('clear.carrito') }}" class="btn btn-danger btn-block"><i class="fa fa-fw fa-trash"></i>Limpiar</a>
+                        <a href="{{ route('clear.carrito') }}" class="btn btn-primary btn-block crear-venta" style="color: blue">Limpiar</a>
                         <br>
                         <button class="btn btn-primary btn-block crear-venta" type="submit">Pagar</button>
                     </form>      
