@@ -226,6 +226,7 @@ form {
 .reportes-table-head {
     background-color: #3f4157;
     color: #fff;
+    text-align: center;
 }
 
 .reportes-table-head th {
@@ -344,10 +345,22 @@ form {
 .eliminar {
     background: tomato;
     color: #fff;
+    border: none;
+    width: fit-content;
+    padding: .5em;
+    margin-inline: auto;
+    cursor: pointer;
 }
 .eliminar:hover {
     background: rgb(243, 58, 26);
     color: #fff;
+}
+
+.editar-inline {
+    display: inline-block;
+}
+.eliminar-inline {
+    display: inline-block;
 }
 
 .agregar {
@@ -405,9 +418,47 @@ textarea {
     cursor: text;
 }
 
+
+/****************** CARRITO ************************/
+
+.carrito {
+    margin-top: 5em;
+    place-items: center;
+}
+
+.carrito__limpiar {
+    color: #fff;
+    background-color: #3f4155;
+    padding: 1em;
+    width: fit-content;
+    /* border: 1px solid rgb(0, 0, 0); */
+    margin-top: 1.5em;
+    /* border-radius: .4em; */
+}
+
+.carrito__limpiar:hover {
+    background-color: red;
+    color: #fff;
+}
+
+.carrito__pagar {
+    margin-top: 1em;
+    padding: 1em;
+    background-color: var(--header_hover);
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    
+    transition: all .2s ease-in-out;
+}
+
+.carrito__pagar:hover {
+    background-color: rgb(101, 195, 85);
+}
+
 /****************** SHOW ************************/
 
-.show-product-card {
+/* .show-product-card {
     max-width: 1200px;
     margin-inline: auto;
     display: grid;
@@ -427,7 +478,7 @@ textarea {
 .show-agregar-carrito:hover {
     background: rgb(55, 248, 29);
     color: #000;
-}
+} */
 
 /*********** reset ***********/
 
@@ -440,6 +491,9 @@ textarea {
 body {
     font-family: 'poppins', sans-serif;
     font-size: 16px;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 15em;
 }
 
 .grid {
@@ -489,12 +543,19 @@ section {
 header,
 footer {
     background: var(--header);
+    z-index: 100;
     /* font-size: 1.2rem; */
 }
 
 header {
     position: sticky;
     top: 0;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
 
 .header__nav {
@@ -589,12 +650,27 @@ picture img {
     border-radius: .3em;
     padding: 1em;
 
-    transition: all .2s ease-in-out;
+    transition: 
 }
 
 .card__tienda:hover {
     transform: translateY(-.5em);
     box-shadow: 0 .2em .5em rgba(0,0,0,.4);
+}
+
+.card__agregar {
+    background-color: #f07342;
+    border: none;
+    padding: .5em;
+    margin-top: 1em;
+    cursor: pointer;
+    color: #fff;
+    border-radius: .3em;
+
+    transition: all .2s ease-in-out; 
+}
+.card__agregar:hover {
+    background-color: hsl(17, 100%, 65%);
 }
 
 .pages {
@@ -647,3 +723,11 @@ picture img {
     grid-template-columns: repeat(4, 1fr);
     gap: .3em;
 }
+
+/* .sidebar-dark-primary {
+    background-color: var(--header);
+}
+
+.nav-link {
+    color: pink;
+} */

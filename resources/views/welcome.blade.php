@@ -49,7 +49,7 @@
                 <div class="card__precio">
                     ${{ $producto->val_unit }}
                 </div>
-                <button class="btn btn-outline-danger" type="submit">Agregar</button>
+                <button class="card__agregar" type="submit">Agregar <i class="fa-solid fa-cart-shopping"></i></button>
             </form>
         </div>
 

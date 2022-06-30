@@ -67,12 +67,12 @@
                                             </td>
 
                                             <td>
-                                                <a class="btn btn-sm btn-success" href="{{ route('AdminLte.productos.edit',$producto->id) }}"><i class="fa fa-fw fa-edit"></i>Editar</a>
+                                                <a class="btn btn-sm btn-success" href="{{ route('AdminLte.productos.edit',$producto->id) }}"><i class="fa fa-fw fa-edit editar-inline"></i>Editar</a>
                                                 @can('usuarios.destroy')
-                                                    <form action="{{ route('AdminLte.productos.destroy',$producto->id) }}" method="POST" class="form-delete">                                                        
+                                                    <form action="{{ route('AdminLte.productos.destroy',$producto->id) }}" method="POST" class="form-delete eliminar-inline">                                                        
                                                         @method('DELETE')
                                                         @csrf
-                                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Eliminar</button>
+                                                        <button type="submit" class="btn btn-danger btn-sm eliminar "><i class="fa fa-fw fa-trash"></i>Eliminar</button>
                                                     </form>
                                                 @endcan
                                             </td>
