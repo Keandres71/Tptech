@@ -57,6 +57,15 @@
                                     </a>
 
                                 </li>
+                                @can('admin.home')
+                                    
+                                <li class="sign-up">
+                                    <a href="{{ route('admin.home') }}">
+                                        AdminTPT
+                                    </a>
+                                </li>
+                                @endcan
+                                
                                 <li>
 
                                     <div>

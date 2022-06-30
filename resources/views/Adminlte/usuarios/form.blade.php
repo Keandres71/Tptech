@@ -58,7 +58,7 @@
 
             <div class="form-group">
                 <label for="password" class="reportes-label">Contraseña</label>
-                <input type="password" name="password" id=""></input>
+                <input type="password" name="password" value="{{old('password')??@$usuario->password}}"></input>
             </div>
 
 

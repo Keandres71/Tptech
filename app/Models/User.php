@@ -24,6 +24,12 @@ class User extends Authenticatable
 		'email' => 'required',
 		'apellido' => 'required',
 		'fecha_nac' => 'required',
+        'tipo_doc',
+        'num_doc',
+        'tel',
+        'ciudad',
+        'dire',
+        'password',
     ];
 
     protected $fillable = [
