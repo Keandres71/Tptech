@@ -640,7 +640,8 @@ picture img {
 }
 
 .tienda {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    grid-template-columns: repeat(5, 1fr);
     gap: 3em 1em;
     margin-top: 2em;
 }
@@ -649,8 +650,9 @@ picture img {
     box-shadow: 0 .2em .3em rgba(0,0,0,.2);
     border-radius: .3em;
     padding: 1em;
+    position: relative;
 
-    transition: 
+    transition: all .2s ease-in-out;
 }
 
 .card__tienda:hover {
@@ -659,9 +661,13 @@ picture img {
 }
 
 .card__agregar {
+    position: absolute;
+    bottom: .5em;
+    right: .5em;
+    width: fit-content;
     background-color: #f07342;
     border: none;
-    padding: .5em;
+    padding: .5em .8em;
     margin-top: 1em;
     cursor: pointer;
     color: #fff;
@@ -672,6 +678,8 @@ picture img {
 .card__agregar:hover {
     background-color: hsl(17, 100%, 65%);
 }
+
+
 
 .pages {
     margin-top: 4em;
@@ -731,3 +739,15 @@ picture img {
 .nav-link {
     color: pink;
 } */
+
+.display-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 50%;
+    padding: 2em;
+    box-shadow: 0 .2em .5em rgba(0, 0, 0, .2);
+}
+
+input[type=checkbox] {
+    transform: scale(.8);
+}

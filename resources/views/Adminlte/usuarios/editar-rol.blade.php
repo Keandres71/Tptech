@@ -27,7 +27,7 @@
                             @csrf
                             @foreach ($roles as $role)
                                 <div>
-                                    <label>
+                                    <label class="display-block">
                                         {!! Form::checkbox('roles[]', $role->id, null, ['class' => 'mr-1']) !!}
                                         {{ $role->name }}
                                     </label>
