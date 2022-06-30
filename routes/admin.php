@@ -11,7 +11,7 @@ use App\Http\controllers\VentaController;
 Route::group(['middleware' => ['permission:admin.home']], function(){
 
     Route::get('',function(){
-        return view('layouts.app');
+        return view('Adminlte.initadmin');
     })->name('admin.home');
 
     // RUTAS PARA LAS VISTAS DEL ADMINLTE
