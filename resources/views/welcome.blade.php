@@ -41,7 +41,10 @@
                 @csrf
                 <input type="hidden" name="i" value="{{ $producto->id }}">
                 <div class="card__img">
-                    <img src="{{ asset('img/iphone_morado.png') }}" alt="">Iphone
+                    <img src="{{ asset('img/iphone_morado.png') }}" alt="">
+                </div>
+                <div class="card__nombre">
+                    <p><b>{{ $producto->nombre }}</b></p>
                 </div>
                 <div class="card__description">
                     <p>{{ $producto->descripcion }}</p>
@@ -49,7 +52,7 @@
                 <div class="card__precio">
                     ${{ $producto->val_unit }}
                 </div>
-                <button class="btn btn-outline-danger" type="submit">Agregar</button>
+                <button class="card__agregar" type="submit">Agregar <i class="fa-solid fa-cart-shopping"></i></button>
             </form>
         </div>
 
