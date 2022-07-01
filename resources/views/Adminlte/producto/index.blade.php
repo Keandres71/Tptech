@@ -44,7 +44,7 @@
                                             <td>{{ ++$i }}</td>
 
 											<td>{{ $producto->categoria->tipo }}</td>
-											<td>{{ $producto->proveedor->rsoc }}</td>
+											<td>{{ $producto->proveedor->nit }}</td>
 											<td>{{ $producto->nombre }}</td>
 											<td>{{ $producto->descripcion }}</td>
 											<td>{{ $producto->val_unit }}</td>

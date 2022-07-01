@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('proveedors', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id('id');
-            $table->string('rsoc');
+            $table->string('nit');
             $table->string('dire')->nullable();
             $table->string('tel')->nullable();
              $table->string('email');
+             $table->char('active')->default(0);
 
         });
     }

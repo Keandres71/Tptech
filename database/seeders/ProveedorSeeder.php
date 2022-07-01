@@ -16,7 +16,7 @@ class ProveedorSeeder extends Seeder
     public function run()
     {
         Proveedor::create([
-            'rsoc' => 'Proveedor 1',
+            'nit' => 'Proveedor 1',
             'email' => 'provedor@gmail.com',
         ]);
     }

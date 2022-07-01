@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\Model;
  * Class Proveedor
  *
  * @property $id
- * @property $rsoc
+ * @property $nit
  * @property $dire
  * @property $tel
  * @property $email
+ * @property $active
  *
  * @property Producto[] $productos
  * @package App
@@ -22,7 +23,7 @@ class Proveedor extends Model
 {
     public $timestamps = false;
     static $rules = [
-		'rsoc' => 'required',
+		'nit' => 'required',
 		'email' => 'required',
     ];
 
@@ -33,7 +34,7 @@ class Proveedor extends Model
      *
      * @var array
      */
-    protected $fillable = ['rsoc','dire','tel','email'];
+    protected $fillable = ['nit','dire','tel','email'];
 
 
     /**

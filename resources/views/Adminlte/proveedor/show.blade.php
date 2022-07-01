@@ -21,8 +21,8 @@
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Rsoc:</strong>
-                            {{ $proveedor->rsoc }}
+                            <strong>Nit:</strong>
+                            {{ $proveedor->nit }}
                         </div>
                         <div class="form-group">
                             <strong>Dire:</strong>
@@ -35,6 +35,10 @@
                         <div class="form-group">
                             <strong>Email:</strong>
                             {{ $proveedor->email }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Active:</strong>
+                            {{ $proveedor->active }}
                         </div>
 
                     </div>

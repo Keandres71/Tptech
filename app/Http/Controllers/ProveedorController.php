@@ -106,4 +106,17 @@ class ProveedorController extends Controller
         return redirect()->route('AdminLte.proveedors.index')
             ->with('success', 'Proveedor eliminado correctamente.');
     }
+    public function activarProveedor(Request $request){
+        $mensaje = '';
+        $proveedor = Proveedor::find($request['i']);
+        $proveedor->active = $request['active'];
+        $proveedor->update();
+        if($proveedor->active == 1){
+            $mensaje = 'Proveedor activado correctamente.';
+        }else{
+            $mensaje = 'Proveedor desactivado correctamente.';
+        }
+        return redirect()->route('AdminLte.proveedors.index')
+            ->with('success', $mensaje);
+    }
 }

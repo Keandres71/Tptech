@@ -35,7 +35,7 @@ class ProductoController extends Controller
     {
         $producto = new Producto();
         $categorias = Categoria::pluck('tipo','id');
-        $proveedores = Proveedor::pluck('rsoc','id');
+        $proveedores = Proveedor::pluck('nit','id');
         return view('AdminLte.producto.create', compact('producto','proveedores','categorias'));
     }
 
@@ -78,7 +78,7 @@ class ProductoController extends Controller
     {
         $producto = Producto::find($id);
         $categorias = Categoria::pluck('tipo','id');
-        $proveedores = Proveedor::pluck('rsoc','id');
+        $proveedores = Proveedor::pluck('nit','id');
 
         return view('AdminLte.producto.edit', compact('producto','proveedores','categorias'));
     }

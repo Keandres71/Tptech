@@ -2,9 +2,9 @@
     <div class="box-body">
 
         <div class="form-group">
-            {{ Form::label('rsoc', 'Razon social') }}
-            {{ Form::text('rsoc', $proveedor->rsoc, ['class' => 'form-control' . ($errors->has('rsoc') ? ' is-invalid' : ''), 'placeholder' => 'Rsoc']) }}
-            {!! $errors->first('rsoc', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::label('nit', 'Nit') }}
+            {{ Form::number('nit', $proveedor->nit, ['class' => 'form-control' . ($errors->has('nit') ? ' is-invalid' : ''), 'placeholder' => 'Nit']) }}
+            {!! $errors->first('nit', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('dire','Direccion') }}
@@ -13,7 +13,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('tel', 'Telefono') }}
-            {{ Form::text('tel', $proveedor->tel, ['class' => 'form-control' . ($errors->has('tel') ? ' is-invalid' : ''), 'placeholder' => 'Tel']) }}
+            {{ Form::number('tel', $proveedor->tel, ['class' => 'form-control' . ($errors->has('tel') ? ' is-invalid' : ''), 'placeholder' => 'Tel']) }}
             {!! $errors->first('tel', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
