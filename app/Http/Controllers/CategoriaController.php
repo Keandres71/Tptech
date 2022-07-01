@@ -30,7 +30,7 @@ class CategoriaController extends Controller
         ]);
         $categoria = Categoria::create($request->only('tipo'));
 
-        return redirect()->route('AdminLte/categorias.index')
+        return redirect()->route('AdminLte.categorias.index')
             ->with('success', 'La categoria se creo correctamente.');
     }
 
@@ -49,7 +49,7 @@ class CategoriaController extends Controller
         $categoria->tipo = $request['tipo'];
         $categoria->save();
 
-        return redirect()->route('AdminLte/categorias.index')
+        return redirect()->route('AdminLte.categorias.index')
             ->with('success', 'La categoria se actualizo correctamente.');
     }
 
@@ -59,11 +59,11 @@ class CategoriaController extends Controller
         $productos = Producto::where('idcag','=',$categoria->id)->get();
 
         if(count($productos) != 0){
-            return redirect()->route('AdminLte/categorias.index')
+            return redirect()->route('AdminLte.categorias.index')
                 ->with('error', 'Esta categoria contiene productos, no se puede eliminar.');
         }else {
             $categoria->delete();
-            return redirect()->route('AdminLte/categorias.index')
+            return redirect()->route('AdminLte.categorias.index')
                 ->with('success', 'La categoria se elimino correctamente.');
         }
 

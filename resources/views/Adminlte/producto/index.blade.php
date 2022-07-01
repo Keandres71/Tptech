@@ -79,7 +79,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <p style="text-align: center"> No hay proveedores disponibles</p>
+                                            <p style="text-align: center"> No hay productos disponibles</p>
                                         </tr>
                                     @endforelse
                                 </tbody>
