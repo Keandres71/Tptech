@@ -38,8 +38,8 @@ Route::post('carrito-agregar', [CartController::class, 'addCart'])->name('add.ca
 Route::get('carrito-limpiar', [CartController::class, 'clearCart'])->name('clear.carrito');
 Route::post('carrito-remover', [CartController::class, 'removeItemCart'])->name('removeitem.carrito');
 // Route::post('traer-productos', [CartController::class, 'traeProductosCarrito']);
-
-Route::post('crear-venta', [VentaController::class, 'store'])->name('crear.venta');
-Route::get('factura-venta/{venta}', [VentaController::class, 'generarPDFFactura'])->name('factura.venta');
-
+Route::group(['middleware' => ['permission:AdminLte.ventas.create']], function(){
+ Route::post('crear-venta', [VentaController::class, 'store'])->name('crear.venta');
+ Route::get('factura-venta/{venta}', [VentaController::class, 'generarPDFFactura'])->name('factura.venta');
+});
 //Route::post('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

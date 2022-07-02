@@ -29,7 +29,7 @@ class CartController extends Controller
             $producto->val_unit,
             1,
         );
-        return redirect()->route('ver.carrito')->with('success', "$producto->nombre se ha agregado correctamente.");
+        return redirect()->route('home')->with('success', "$producto->nombre se ha agregado correctamente.");
 
     }
     public function clearCart()
