@@ -67,7 +67,7 @@
                                             <td>
                                                 <a class="btn btn-sm btn-success" href="{{ route('AdminLte.proveedors.edit',$proveedor->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                 @can('usuarios.destroy')
-                                                    <form action="{{ route('AdminLte.proveedors.destroy',$proveedor->id) }}" method="POST" class="form-delete">
+                                                    <form action="{{ route('AdminLte.proveedors.destroy',$proveedor->id) }}" method="POST" class="form-delete eliminar-inline">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>

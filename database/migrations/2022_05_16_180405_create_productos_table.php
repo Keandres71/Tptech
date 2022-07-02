@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('idcag');
             $table->unsignedBigInteger('idpro');
             $table->string('nombre');
+            $table->text('imagen')->nullable()->default('NULL');
             $table->string('descripcion');
             $table->double('val_unit');
             $table->integer('stock');

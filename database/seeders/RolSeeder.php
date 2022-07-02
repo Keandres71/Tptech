@@ -59,11 +59,11 @@ class RolSeeder extends Seeder
 
         Permission::create(['name' => 'proveedors.active'])->syncRoles([$rol1,$rol2]);
         //Permisos de ventas
-        Permission::create(['name' => 'AdminLte.ventas.index'])->syncRoles([$rol1,$rol2]);
-        Permission::create(['name' => 'AdminLte.ventas.create'])->syncRoles([$rol1,$rol2]);
-        Permission::create(['name' => 'AdminLte.ventas.store'])->syncRoles([$rol1,$rol2]);
-        Permission::create(['name' => 'AdminLte.ventas.edit'])->syncRoles([$rol1,$rol2]);
-        Permission::create(['name' => 'AdminLte.ventas.update'])->syncRoles([$rol1,$rol2]);
+        Permission::create(['name' => 'AdminLte.ventas.index'])->syncRoles([$rol1,$rol2,$rol3]);
+        Permission::create(['name' => 'AdminLte.ventas.create'])->syncRoles([$rol1,$rol2,$rol3]);
+        Permission::create(['name' => 'AdminLte.ventas.store'])->syncRoles([$rol1,$rol2,$rol3]);
+        
+        
         Permission::create(['name' => 'AdminLte.ventas.destroy'])->syncRoles([$rol1]);
 
         Permission::create(['name' => 'reporte.venta.rango'])->syncRoles([$rol1]);

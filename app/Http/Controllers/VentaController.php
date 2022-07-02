@@ -75,7 +75,7 @@ class VentaController extends Controller
     {
         $venta = Venta::find($id)->delete();
 
-        return redirect()->route('ventas.index')
+        return redirect()->route('AdminLte.ventas.index')
             ->with('success', 'Venta eliminada correctamente.');
     }
 

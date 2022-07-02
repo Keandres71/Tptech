@@ -1,3 +1,4 @@
+
 @extends('Adminlte.layouts')
 
 @section('plugins.DateRangePicker', true)
@@ -13,8 +14,10 @@
                             <span id="card_title">
                                 {{ __('Administrar ventas') }}
                             </span>
+                            {{-- @CAN SI TENEMOS EL ROL ASIGNADO MUESTRA --}}
                             @can('reporte.venta.rango')
                                 <form action="{{ route('reporte.venta.rango') }}" method="POST">
+                                    {{-- TOKEN DE LARAVEL --}}
                                     @csrf
                                     <input id="fechaInicial" name="fechaInicial" type="hidden">
                                     <input id="fechaFinal" name="fechaFinal" type="hidden">
@@ -70,6 +73,7 @@
                                                 @endcan
                                             </td>
                                         </tr>
+                                        {{-- DIRECTUVA DE BLADE  --}}
                                     @empty
                                         <tr>
                                             <p style="text-align: center"> No hay ventas disponibles</p>
@@ -87,6 +91,9 @@
 @endsection
 
 @section('js')
-    <script src="{{ asset('js/plugins/sweetalert.js') }}"></script>
+     {{-- ALERT DE ELIMINAR --}}
+    <script src="{{ asset('js/plugins/sweetalert.js') }}"></script> 
     <script src="{{ asset('js/views/venta-rango.js') }}"></script>
+    {{-- VISTA DEL ADMIN-VENTA DONDE SE HACE USO DE LA LOGICA DEL DATERANGEPIKER  --}}
+    
 @endsection

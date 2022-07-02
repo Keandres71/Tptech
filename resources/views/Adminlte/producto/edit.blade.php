@@ -15,11 +15,11 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('productos.update', $producto->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('AdminLte.productos.update', $producto->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('producto.form')
+                            @include('AdminLte.producto.form')
 
                         </form>
                     </div>

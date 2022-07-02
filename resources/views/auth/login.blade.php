@@ -38,7 +38,7 @@
                 </form>
 
                 <div class="login-options">
-                    <a href="loginrecuperar.html">Recuperar contraseña</a>
+                    <a href="{{ route('password.request') }}">Recuperar contraseña</a>
                     <a href="{{ route('register') }}">Registrarse</a>
                 </div>
             </div>

@@ -84,8 +84,9 @@ class ProveedorController extends Controller
      * @param  Proveedor $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Proveedor $proveedor)
+    public function update(Request $request, $id)
     {
+        $proveedor = Proveedor::find($id);
         request()->validate(Proveedor::$rules);
 
         $proveedor->update($request->all());

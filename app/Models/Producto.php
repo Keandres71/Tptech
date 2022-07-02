@@ -30,6 +30,7 @@ class Producto extends Model
 		'idcag' => 'required',
 		'idpro' => 'required',
 		'nombre' => 'required',
+		'imagen' => 'required',
 		'descripcion' => 'required',
 		'val_unit' => 'required',
         'stock' => 'required'
@@ -42,7 +43,7 @@ class Producto extends Model
      *
      * @var array
      */
-    protected $fillable = ['idcag','idpro','nombre','descripcion','val_unit','active','stock'];
+    protected $fillable = ['idcag','idpro','nombre','imagen','descripcion','val_unit','active','stock'];
 
 
     /**
@@ -52,7 +53,7 @@ class Producto extends Model
     {
         return $this->hasOne('App\Models\Categoria', 'id', 'idcag');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -60,7 +61,7 @@ class Producto extends Model
     {
         return $this->hasMany('App\Models\DellFactura', 'idproduct', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -68,6 +69,6 @@ class Producto extends Model
     {
         return $this->hasOne('App\Models\Proveedor', 'id', 'idpro');
     }
-    
+
 
 }

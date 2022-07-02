@@ -57,13 +57,22 @@
                                     </a>
 
                                 </li>
+                                @can('admin.home')
+                                    
+                                <li class="sign-up">
+                                    <a href="{{ route('admin.home') }}">
+                                        AdminTPT
+                                    </a>
+                                </li>
+                                @endcan
+                                
                                 <li>
 
                                     <div>
                                         <form action="{{ route('logout') }}" method="POST">
                                             @csrf
 
-                                            <input type="submit" value="SALIR">
+                                            <input type="submit" value="Salir" class="user-salir">
                                         </form>
                                     </div>
                                 </li>
