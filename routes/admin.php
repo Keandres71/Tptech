@@ -36,7 +36,7 @@ Route::group(['middleware' => ['permission:admin.home']], function(){
     //RUTAS ADMIN PROVEEDORES
     Route::resource('/proveedores', ProveedorController::class)->except('show')->names('AdminLte.proveedors');
 
-    Route::patch('proveedors', [ProveedorController::class, 'activarProveedor'])->name('proveedors.active');
+    Route::patch('proveedores', [ProveedorController::class, 'activarProveedor'])->name('proveedors.active');
 
     //RUTAS ADMIN VENTAS
     Route::resource('/ventas', VentaController::class)

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
-
+use App\Traits\Template;
 /**
  * Class ProveedorController
  * @package App\Http\Controllers
