@@ -41,7 +41,9 @@
                 @csrf
                 <input type="hidden" name="i" value="{{ $producto->id }}">
                 <div class="card__img">
-                    <img src="{{ asset('img/iphone_morado.png') }}" alt="">
+                    @if ($producto->imagen != 'NULL' || $producto->imagen != '')
+                        <img src="{{ asset($producto->imagen) }}" alt="">
+                    @endif
                 </div>
                 <div class="card__nombre">
                     <p><b>{{ $producto->nombre }}</b></p>

@@ -6,6 +6,7 @@ use App\Models\Producto;
 use App\Models\Categoria;
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
+use App\Traits\Template;
 
 /**
  * Class ProductoController
@@ -13,6 +14,9 @@ use Illuminate\Http\Request;
  */
 class ProductoController extends Controller
 {
+    use Template;
+
+    private $name = 'productos';
     /**
      * Display a listing of the resource.
      *
@@ -49,10 +53,16 @@ class ProductoController extends Controller
     {
         request()->validate(Producto::$rules);
 
-        $producto = Producto::create($request->all());
+        $data = $request->except('_token','_method');
+
+        if(isset($data['imagen'])){
+            $data['imagen'] = ProductoController::moveImage($request, $this->name);
+        }
+
+        $producto = Producto::create($data);
 
         return redirect()->route('AdminLte.productos.index')
-            ->with('success', 'Producto created successfully.');
+            ->with('success', 'Producto creado correctamente.');
     }
 
     /**
@@ -94,10 +104,16 @@ class ProductoController extends Controller
     {
         request()->validate(Producto::$rules);
 
-        $producto->update($request->all());
+        $data = $request->except('_token','_method');
+
+        if(isset($data['imagen'])){
+            $data['imagen'] = ProductoController::moveImage($request, $this->name);
+        }
+
+        $producto->update($data);
 
         return redirect()->route('AdminLte.productos.index')
-            ->with('success', 'Producto updated successfully');
+            ->with('success', 'Producto actualizado correctamente.');
     }
 
     /**
@@ -110,7 +126,7 @@ class ProductoController extends Controller
         $producto = Producto::find($id)->delete();
 
         return redirect()->route('AdminLte.productos.index')
-            ->with('success', 'Producto deleted successfully');
+            ->with('success', 'Producto eliminado correctamente.');
     }
 
     public function activarProducto(Request $request){
