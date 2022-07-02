@@ -755,13 +755,35 @@ input[type=checkbox] {
 }
 
 .cabezote__grid {
-    display: flex;
-    /* grid-template-columns: 1fr 1fr; */
-    background-color: red;
+    border-bottom: 3px solid rgba(0, 0, 0, .2);
+    background-color: #594276;
+    background-color: #9264cf;
+    padding: 1em;
+    color: #fff;
+    /* #594276;
+    #9264cf; */
+}
+
+.cabezote__titulo {
+    font-size: 1.3rem;
+    float: left;
 }
 
 .cabezote__fecha {
-    background: pink;
+    /* background: pink; */
+}
+
+.cabezote__cliente {
+    text-align: left;
+}
+
+.cabezote__client p {
+    margin: 0;
+    padding: 0;
+}
+
+.cabezote__detalle_fact {
+    text-align: left;
 }
 
 .user-salir {
