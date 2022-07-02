@@ -6,6 +6,11 @@
     @include('layouts.cabezote-reporte')
     <table class="reportes-table">
         <tbody class="reportes-table-body">
+            <tr>
+                <th>Productos</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+            </tr>
             <?php
                 // logica desde la vista no del controlador por jsondecode
                 // estilos al la factura pdf
@@ -13,15 +18,8 @@
                 foreach ($listaProductos as $producto) {?>
 
                 <tr>
-                    <th>Productos</th>
                     <th>{{ $producto['name'] }}</th>
-                </tr>
-                <tr>
-                    <th>Cantidad</th>
                     <th>{{ $producto['quantity'] }}</th>
-                </tr>
-                <tr>
-                    <th>Precio</th>
                     <th>{{ $producto['price'] }}</th>
                 </tr>
                    
@@ -36,7 +34,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="producto">
+                <td class="producto" colspan="2">
                     <strong>TOTAL</strong>
                 </td>
                 <td class="precio"> 
